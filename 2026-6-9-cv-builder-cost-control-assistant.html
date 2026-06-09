@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Builder - Cost Control Assistant </title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<style>
+:root{
+    --primary:#0f172a;
+    --secondary:#2563eb;
+    --light:#f8fafc;
+    --border:#e2e8f0;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Cairo',sans-serif;
+    background:#eef2f7;
+    padding:30px;
+}
+
+.toolbar{
+    max-width:900px;
+    margin:auto;
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    padding:12px 20px;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:600;
+}
+
+.download-btn{
+    background:#16a34a;
+    color:white;
+}
+
+.reset-btn{
+    background:#dc2626;
+    color:white;
+}
+
+.cv-container{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.cv{
+    padding:45px;
+    line-height:1.9;
+}
+
+.cv[contenteditable="true"]:focus{
+    outline:none;
+}
+
+.header{
+    text-align:center;
+    border-bottom:3px solid var(--secondary);
+    padding-bottom:20px;
+    margin-bottom:25px;
+}
+
+.header h1{
+    color:var(--primary);
+    font-size:34px;
+}
+
+.contact{
+    color:#555;
+    font-size:14px;
+}
+
+.section{
+    margin-top:25px;
+}
+
+.section-title{
+    color:var(--secondary);
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:10px;
+    border-bottom:1px solid var(--border);
+    padding-bottom:6px;
+}
+
+ul{
+    padding-right:20px;
+}
+
+li{
+    margin-bottom:6px;
+}
+
+.note{
+    background:#eff6ff;
+    border-right:5px solid var(--secondary);
+    padding:12px;
+    margin-top:12px;
+    border-radius:8px;
+}
+
+@media print{
+    .toolbar{
+        display:none;
+    }
+}
+
+@media(max-width:768px){
+
+    body{
+        padding:10px;
+    }
+
+    .cv{
+        padding:20px;
+    }
+
+    .header h1{
+        font-size:26px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+    <button class="download-btn" onclick="downloadPDF()">
+        تحميل PDF
+    </button>
+
+    <button class="reset-btn" onclick="restoreTemplate()">
+        استعادة النسخة الأصلية
+    </button>
+</div>
+
+<div class="cv-container">
+
+<div id="cv" class="cv" contenteditable="true">
+
+<div class="header">
+    <h1>اكتب اسمك الرباعي</h1>
+
+    <div class="contact">
+        موبايل: 01xxxxxxxxx |
+        واتساب: 01xxxxxxxxx |
+        إيميل: yourname@email.com |
+        العنوان: الغردقة / القاهرة
+        <br>
+        LinkedIn:
+        linkedin.com/in/yourname
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title">
+        الملخص المهني | Professional Summary
+    </div>
+
+    <p>
+        خريج بكالوريوس حاسبات ومعلومات بخبرة عملية في مجال
+        الفواتير الإلكترونية E-Invoicing ومراجعة البيانات.
+        أمتلك مهارات تحليل بيانات قوية باستخدام Excel و SQL
+        وأتمتة العمليات.
+
+        أسعى لاستغلال خلفيتي التقنية في منصب
+        Cost Control Assistant بفندق 5 نجوم بهدف أتمتة
+        تقارير المخزون وتقليل الهدر وزيادة دقة التكاليف.
+    </p>
+</div>
+
+<div class="section">
+    <div class="section-title">
+        الخبرات العملية | Work Experience
+    </div>
+
+    <strong>
+        أخصائي فواتير إلكترونية
+        E-Invoicing Specialist
+    </strong>
+
+    <br>
+
+    اسم الشركة | من شهر سنة - حتى الآن
+
+    <ul>
+        <li>
+            مراجعة وإصدار +500 فاتورة إلكترونية شهرياً
+            بنسبة خطأ 0%.
+        </li>
+
+        <li>
+            إنشاء شيتات Excel باستخدام VLOOKUP و
+            PivotTable لمراجعة تطابق الفواتير مع
+            أوامر الشراء PO مما وفر 4 ساعات عمل أسبوعياً.
+        </li>
+
+        <li>
+            التواصل مع الموردين لحل مشاكل الأكواد
+            والأخطاء الضريبية وتقليل مرتجعات
+            الفواتير بنسبة 30%.
+        </li>
+
+        <li>
+            تدريب 2 من الزملاء الجدد على منظومة
+            الفاتورة الإلكترونية وإعداد ملفات CSV.
+        </li>
+    </ul>
+
+    <p>
+        أضف أي خبرات أخرى بنفس الصيغة:
+        فعل + رقم + نتيجة.
+    </p>
+</div>
+
+<div class="section">
+    <div class="section-title">
+        المؤهلات الدراسية | Education
+    </div>
+
+    <p>
+        بكالوريوس حاسبات ومعلومات
+        <br>
+        جامعة اسم الجامعة
+        <br>
+        قسم علوم الحاسب
+        <br>
+        التقدير: جيد / جيد جداً
+        <br>
+        سنة التخرج: 202X
+    </p>
+</div>
+
+<div class="section">
+    <div class="section-title">
+        المهارات التقنية | Technical Skills
+    </div>
+
+    <ul>
+        <li>
+            تحليل بيانات:
+            Excel متقدم - VLOOKUP - PivotTable - IF
+        </li>
+
+        <li>
+            قواعد بيانات:
+            SQL Queries
+        </li>
+
+        <li>
+            أنظمة:
+            E-Invoice System - ERP Basics
+        </li>
+
+        <li>
+            Python أساسيات لأتمتة التقارير
+        </li>
+    </ul>
+</div>
+
+<div class="section">
+    <div class="section-title">
+        المهارات الشخصية | Soft Skills
+    </div>
+
+    <ul>
+        <li>Data Accuracy</li>
+        <li>Problem Solving</li>
+        <li>Root Cause Analysis</li>
+        <li>Fast Learning</li>
+    </ul>
+</div>
+
+<div class="section">
+    <div class="section-title">
+        اللغات | Languages
+    </div>
+
+    <p>
+        عربي: اللغة الأم
+        <br>
+        English: B2
+    </p>
+</div>
+
+<div class="section">
+    <div class="section-title">
+        الدورات التدريبية | Courses
+    </div>
+
+    <ul>
+        <li>
+            Hotel Cost Control Basics - Udemy
+        </li>
+
+        <li>
+            ICDL Certificate - 2025
+        </li>
+    </ul>
+</div>
+
+<div class="section">
+    <div class="section-title">
+        نصائح للانترفيو
+    </div>
+
+    <div class="note">
+        هدفي مش بس أراجع الفواتير،
+        هدفي أعمل Dashboard على Excel
+        يطلع الهدر في المطبخ أوتوماتيك كل يوم.
+    </div>
+</div>
+
+</div>
+</div>
+
+<script>
+
+const originalTemplate =
+document.getElementById("cv").innerHTML;
+
+function restoreTemplate(){
+    document.getElementById("cv").innerHTML =
+    originalTemplate;
+}
+
+function downloadPDF(){
+
+    const name =
+    document.querySelector(".header h1")
+    .innerText.trim() || "CV";
+
+    const element =
+    document.getElementById("cv");
+
+    html2pdf()
+    .set({
+        margin:0.3,
+        filename:`Cost_Control_Assistant_${name}.pdf`,
+        image:{
+            type:'jpeg',
+            quality:1
+        },
+        html2canvas:{
+            scale:2
+        },
+        jsPDF:{
+            unit:'in',
+            format:'a4',
+            orientation:'portrait'
+        }
+    })
+    .from(element)
+    .save();
+}
+</script>
+
+</body>
+</html>
+
