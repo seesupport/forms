@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional CV - Inquiry Officer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#0f172a;
+    --gold:#d4af37;
+    --light:#f8fafc;
+    --gray:#64748b;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo',sans-serif;
+}
+
+body{
+    background:#e2e8f0;
+    padding:30px;
+}
+
+.actions{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.btn{
+    background:var(--primary);
+    color:white;
+    border:none;
+    padding:14px 30px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:var(--gold);
+    color:#000;
+}
+
+.cv-container{
+    width:210mm;
+    min-height:297mm;
+    margin:auto;
+    background:white;
+    display:grid;
+    grid-template-columns:300px 1fr;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.sidebar{
+    background:var(--primary);
+    color:white;
+    padding:35px;
+}
+
+.avatar{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    overflow:hidden;
+    margin:auto;
+    border:5px solid var(--gold);
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.name{
+    text-align:center;
+    margin-top:20px;
+}
+
+.name h1{
+    font-size:28px;
+}
+
+.job{
+    color:var(--gold);
+    font-weight:700;
+    margin-top:8px;
+}
+
+.side-section{
+    margin-top:35px;
+}
+
+.side-section h3{
+    color:var(--gold);
+    margin-bottom:12px;
+    font-size:18px;
+    border-bottom:1px solid rgba(255,255,255,.2);
+    padding-bottom:6px;
+}
+
+.side-section p,
+.side-section li{
+    font-size:14px;
+    line-height:1.9;
+    color:#e5e7eb;
+}
+
+.side-section ul{
+    list-style:none;
+}
+
+.main{
+    padding:40px;
+}
+
+.section{
+    margin-bottom:30px;
+}
+
+.section-title{
+    color:var(--primary);
+    font-size:22px;
+    font-weight:800;
+    margin-bottom:15px;
+    position:relative;
+}
+
+.section-title::after{
+    content:"";
+    position:absolute;
+    bottom:-6px;
+    right:0;
+    width:70px;
+    height:4px;
+    background:var(--gold);
+}
+
+.summary{
+    margin-top:20px;
+    line-height:2;
+    color:#444;
+}
+
+.job-card{
+    margin-top:20px;
+    padding:20px;
+    background:#f8fafc;
+    border-right:5px solid var(--gold);
+    border-radius:10px;
+}
+
+.job-card h4{
+    color:var(--primary);
+}
+
+.job-card span{
+    color:var(--gray);
+    font-size:14px;
+}
+
+.job-card ul{
+    margin-top:10px;
+    padding-right:20px;
+}
+
+.job-card li{
+    margin-bottom:10px;
+    line-height:1.8;
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.skill{
+    background:#f1f5f9;
+    padding:12px;
+    border-radius:8px;
+    text-align:center;
+    font-weight:600;
+}
+
+@media print{
+    .actions{
+        display:none;
+    }
+
+    body{
+        background:white;
+        padding:0;
+    }
+
+    .cv-container{
+        box-shadow:none;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="actions">
+    <button class="btn" onclick="downloadPDF()">
+        تحميل CV PDF
+    </button>
+</div>
+
+<div class="cv-container" id="cv">
+
+    <aside class="sidebar">
+
+        <div class="avatar">
+            <img src="https://via.placeholder.com/300" alt="">
+        </div>
+
+        <div class="name">
+            <h1>اسمك الثلاثي</h1>
+            <div class="job">Inquiry Officer</div>
+        </div>
+
+        <div class="side-section">
+            <h3>بيانات التواصل</h3>
+            <p>📱 01xxxxxxxxx</p>
+            <p>📧 yourname@gmail.com</p>
+            <p>📍 الغردقة - مصر</p>
+            <p>🌐 linkedin.com/in/yourname</p>
+        </div>
+
+        <div class="side-section">
+            <h3>اللغات</h3>
+            <ul>
+                <li>العربية - ممتاز</li>
+                <li>الإنجليزية - B2</li>
+                <li>الألمانية - A2</li>
+            </ul>
+        </div>
+
+        <div class="side-section">
+            <h3>المهارات</h3>
+            <ul>
+                <li>Customer Service</li>
+                <li>Tele Sales</li>
+                <li>CRM Systems</li>
+                <li>Microsoft Office</li>
+                <li>Opera PMS</li>
+                <li>Problem Solving</li>
+            </ul>
+        </div>
+
+    </aside>
+
+    <main class="main">
+
+        <section class="section">
+            <h2 class="section-title">الملخص المهني</h2>
+
+            <p class="summary">
+                أخصائي دعم فني بخبرة تزيد عن عامين في خدمة العملاء
+                وحل المشكلات وإدارة الاستفسارات باحترافية.
+                أمتلك مهارات قوية في التواصل والإقناع وتحويل
+                الاستفسارات إلى فرص ناجحة، وأسعى للانضمام إلى
+                فندق 5 نجوم كموظف استعلامات Inquiry Officer.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">الخبرات العملية</h2>
+
+            <div class="job-card">
+
+                <h4>
+                    Technical Support Specialist
+                </h4>
+
+                <span>
+                    اسم الشركة | 2023 - حتى الآن
+                </span>
+
+                <ul>
+                    <li>التعامل مع أكثر من 70 استفسار يومياً.</li>
+                    <li>تحقيق معدل رضا عملاء 94٪.</li>
+                    <li>حل 90٪ من المشكلات من أول تواصل.</li>
+                    <li>تدريب الموظفين الجدد على CRM.</li>
+                    <li>إعداد تقارير الأداء الدورية.</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">المؤهلات التعليمية</h2>
+
+            <div class="job-card">
+                <h4>بكالوريوس تجارة</h4>
+                <span>جامعة القاهرة - 2022</span>
+            </div>
+
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">الدورات التدريبية</h2>
+
+            <div class="skills">
+                <div class="skill">Customer Service</div>
+                <div class="skill">Hotel Operations</div>
+                <div class="skill">Communication Skills</div>
+                <div class="skill">Sales Techniques</div>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+
+function downloadPDF(){
+
+    const element = document.getElementById("cv");
+
+    html2pdf()
+    .set({
+        margin:0,
+        filename:'Professional-CV.pdf',
+        image:{
+            type:'jpeg',
+            quality:1
+        },
+        html2canvas:{
+            scale:3,
+            useCORS:true
+        },
+        jsPDF:{
+            unit:'mm',
+            format:'a4',
+            orientation:'portrait'
+        }
+    })
+    .from(element)
+    .save();
+
+}
+
+</script>
+
+</body>
+</html>
+
