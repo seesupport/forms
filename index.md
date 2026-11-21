@@ -3,3 +3,5 @@
 [youtube-form](./youtube-form.html/)
 
 [2026-11-21-youtube-form](./2026-11-21-youtube-form.html/)
+
+[2026-11-21-أبوعبيدة](./2026-11-21-أبوعبيدة.html/)
