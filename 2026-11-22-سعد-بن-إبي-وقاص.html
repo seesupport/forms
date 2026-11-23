@@ -1,0 +1,1330 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مدرسة الطود العظيم — سعد بن أبي وقاص</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+  :root{
+    --brand:#1d4ed8; --brand-2:#1e40af; --brand-3:#e6efff; --brand-4:#3b82f6;
+    --ink:#1e293b; --paper:#f4f7fb;
+    --sup-h:0px;
+  }
+  body{
+    font-family:'Cairo',system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;
+    background:var(--paper);color:var(--ink);min-height:100vh;
+    padding-bottom:calc(var(--sup-h) + 24px);
+  }
+  .site-nav{background:linear-gradient(135deg,#0b2e6b 0%,#1d4ed8 100%);box-shadow:0 3px 16px rgba(13,46,107,.28)}
+  .site-nav .navbar-brand{color:#fff;font-weight:800;line-height:1.15}
+  .site-nav .navbar-brand small{display:block;font-size:.68rem;font-weight:400;opacity:.8}
+  .brand-badge{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);font-size:1.25rem;color:#bfdbfe}
+  .site-nav .nav-link{color:rgba(255,255,255,.85);font-weight:600}
+  .site-nav .nav-link:hover,.site-nav .nav-link.active{color:#fff}
+  .card{border:0;border-radius:16px;box-shadow:0 4px 18px rgba(13,46,107,.08);overflow:hidden}
+  .card-header{background:#fff;border-bottom:1px solid #e9eef7;font-weight:700;color:var(--brand);display:flex;align-items:center;gap:.5rem}
+  .card-footer{background:#fff;border-top:1px solid #e9eef7}
+  .lecture-btn{width:100%;border:0;background:#fff;padding:.8rem 1rem;display:flex;gap:.55rem;align-items:center;font-weight:700;color:var(--brand);text-align:right;border-bottom:1px solid #e9eef7;cursor:pointer;transition:.15s}
+  .lecture-btn:hover{background:#f4f8ff}
+  .lecture-btn.active{background:var(--brand-3)}
+  .lecture-btn .chev{transition:transform .25s;font-size:.8rem;opacity:.6}
+  .lecture-btn.open .chev{transform:rotate(180deg)}
+  .parts{display:none;background:#fbfcff}
+  .parts.open{display:block}
+  .part-link{display:flex;gap:.5rem;align-items:center;padding:.6rem 1.1rem .6rem 2rem;color:#3f5066;text-decoration:none;font-size:.92rem;border-bottom:1px dashed #e9eef7;transition:.15s}
+  .part-link:hover{background:#edf4ff;color:var(--brand)}
+  .part-link.active{background:var(--brand);color:#fff}
+  .part-link i{font-size:.95rem;opacity:.85}
+  .video-wrap{background:#000;aspect-ratio:16/9;width:100%;position:relative}
+  .video-wrap video{width:100%;height:100%;display:block;object-fit:contain;background:#000}
+  .yt-host{width:100%;height:100%}
+  .yt-host iframe{width:100%!important;height:100%!important;border:0;display:block}
+  .video-wrap.yt-offscreen{position:fixed;left:-9999px;top:0;width:480px;height:270px;z-index:0}
+  .audio-wrap{padding:2rem 1.25rem;text-align:center;color:#fff;background:radial-gradient(circle at 50% 0%,#2563eb 0%,#0b2e6b 70%)}
+  .eq{display:flex;gap:7px;align-items:flex-end;justify-content:center;height:86px;margin-bottom:1rem}
+  .eq span{width:11px;height:18%;border-radius:6px;background:linear-gradient(180deg,#bfdbfe,#60a5fa);transform-origin:bottom;transition:.2s}
+  .audio-wrap.playing .eq span{animation:bounce 1.05s infinite ease-in-out}
+  .eq span:nth-child(1){animation-delay:0s}.eq span:nth-child(2){animation-delay:.12s}.eq span:nth-child(3){animation-delay:.24s}.eq span:nth-child(4){animation-delay:.36s}.eq span:nth-child(5){animation-delay:.48s}.eq span:nth-child(6){animation-delay:.6s}.eq span:nth-child(7){animation-delay:.72s}.eq span:nth-child(8){animation-delay:.84s}.eq span:nth-child(9){animation-delay:.96s}
+  @keyframes bounce{0%,100%{height:18%}50%{height:92%}}
+  .audio-title{font-weight:700;margin-bottom:1rem;font-size:1.05rem}
+  .audio-controls{display:flex;align-items:center;gap:.75rem;justify-content:center;flex-wrap:wrap;max-width:640px;margin:0 auto}
+  .audio-controls input[type=range]{flex:1;min-width:180px;accent-color:#bfdbfe}
+  .audio-time{font-size:.82rem;opacity:.85;font-variant-numeric:tabular-nums;min-width:96px}
+  .state-wrap{padding:2.5rem 1rem;text-align:center;background:#f7faff}
+  .state-wrap i{font-size:2.4rem;color:var(--brand);opacity:.75}
+  .state-wrap p{margin:.75rem 0 1rem;font-weight:700;color:#3b5066}
+  .btn-brand{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:700}
+  .btn-brand:hover{background:var(--brand-2);border-color:var(--brand-2);color:#fff}
+  .form-check-input:checked{background-color:var(--brand);border-color:var(--brand)}
+  .form-check-input:focus{box-shadow:0 0 0 .2rem rgba(29,78,216,.15)}
+  .form-check-label{font-weight:600;color:#3b5066;cursor:pointer;font-size:.95rem}
+  .tr-scroll{max-height:440px;overflow:auto;padding:.5rem}
+  .tr-item{display:flex;gap:.7rem;padding:.55rem .9rem;border-radius:10px;cursor:pointer;border-right:3px solid transparent;transition:.15s;align-items:flex-start}
+  .tr-item:hover{background:#f1f6ff}
+  .tr-item.active{background:var(--brand-3);border-right-color:var(--brand)}
+  .tr-time{flex:0 0 auto;font-size:.75rem;font-weight:800;color:var(--brand);background:#e6efff;border-radius:6px;padding:.1rem .45rem;font-variant-numeric:tabular-nums;margin-top:.25rem}
+  .tr-item.active .tr-time{background:var(--brand);color:#fff}
+  .tr-text{font-size:.95rem;line-height:1.95;color:#334155}
+  .summary-list{list-style:none;padding:0;margin:0}
+  .summary-list li{display:flex;gap:.7rem;align-items:flex-start;padding:.65rem .9rem;border-bottom:1px dashed #e9eef7;line-height:1.9;font-size:.96rem;color:#334155}
+  .summary-list li:last-child{border-bottom:0}
+  .summary-list li i{color:var(--brand-4);margin-top:.35rem}
+  .badge-soft{background:var(--brand-3);color:var(--brand);font-weight:700}
+  .hero-note{font-size:.9rem;color:#5b6f85}
+  .action-btn{width:34px;height:34px;display:inline-grid;place-items:center;border-radius:10px;border:1px solid #dbe6f5;background:#fff;color:var(--brand);transition:.15s;font-size:.95rem;padding:0}
+  .action-btn:hover{background:var(--brand-3);border-color:var(--brand);color:var(--brand-2)}
+  .action-btn.danger:hover{background:#ffe5e5;border-color:#ef4444;color:#b91c1c}
+  .action-btn:disabled{opacity:.4;cursor:not-allowed}
+  ::-webkit-scrollbar{width:9px;height:9px}
+  ::-webkit-scrollbar-thumb{background:#c7d6ea;border-radius:8px}
+  ::-webkit-scrollbar-thumb:hover{background:#a9c0dd}
+
+  .support-bar,
+  .end-bar{
+    background:linear-gradient(90deg,#0b2e6b 0%,#1d4ed8 60%,#2563eb 100%);
+    color:#fff;
+  }
+  .support-bar .inner,
+  .end-bar .inner{
+    display:flex; align-items:center; gap:.5rem; flex-wrap:wrap;
+    padding:.55rem 1rem; max-width:1400px; margin:0 auto;
+  }
+  .support-bar .label,
+  .end-bar .label{
+    font-weight:800;display:flex;align-items:center;gap:.4rem;font-size:.95rem;
+  }
+  .support-bar .label i,
+  .end-bar .label i{color:#ff6b6b}
+
+  .btn-sup{
+    border:0; border-radius:10px; font-weight:700; font-size:.85rem;
+    padding:.4rem .75rem; display:inline-flex; align-items:center; gap:.35rem;
+    transition:.15s; white-space:nowrap;
+  }
+  .btn-vodafone{background:#e60000;color:#fff}
+  .btn-vodafone:hover{background:#c00000;color:#fff;transform:translateY(-1px)}
+  .btn-yt{background:#ff0000;color:#fff}
+  .btn-yt:hover{background:#cc0000;color:#fff;transform:translateY(-1px)}
+  .btn-join{background:#f59e0b;color:#1e293b}
+  .btn-join:hover{background:#d97706;color:#1e293b;transform:translateY(-1px)}
+
+  .support-bar{
+    position:fixed; left:0; right:0; bottom:0; z-index:1060;
+    box-shadow:0 -6px 24px rgba(0,0,0,.22);
+    border-top:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(6px);
+  }
+  .support-bar .close-sup{
+    margin-inline-start:auto; background:transparent; color:#fff;
+    border:1px solid rgba(255,255,255,.4); border-radius:8px;
+    width:30px; height:30px; display:grid; place-items:center; transition:.15s; padding:0;
+  }
+  .support-bar .close-sup:hover{background:rgba(255,255,255,.15)}
+  .support-bar.hidden{display:none}
+
+  .end-bar{
+    border-top:2px solid #f59e0b;
+    margin-top:1rem;
+  }
+  .end-bar .inner{padding:.75rem 1rem}
+
+  @media (max-width: 575.98px){
+    .support-bar .label,
+    .end-bar .label{width:100%}
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg site-nav sticky-top py-2">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#/">
+      <span class="brand-badge"><i class="bi bi-mosque"></i></span>
+      <span>مدرسة الطود العظيم<small>دروس ومحاضرات علمية</small></span>
+    </a>
+    <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"><i class="bi bi-list fs-3"></i></button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#/"><i class="bi bi-house-door"></i> الرئيسية</a></li>
+        <li class="nav-item"><a class="nav-link" href="#/lectures"><i class="bi bi-collection-play"></i> اللقاءات</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container py-4">
+  <div class="row g-4">
+    <aside class="col-lg-4 col-xl-3">
+      <div class="card">
+        <div class="card-header"><i class="bi bi-collection-play"></i> اللقاءات والأجزاء</div>
+        <div id="lectureList"></div>
+      </div>
+      <div class="card mt-3">
+        <div class="card-body">
+          <div class="d-flex align-items-center gap-2 mb-2"><i class="bi bi-link-45deg text-primary"></i><strong class="small">مشاركة المحتوى</strong></div>
+          <p class="hero-note mb-0">يمكن مشاركة رابط أي جزء معيّن، مع إمكانية تحديد وقت البدء مباشرةً عبر <code dir="ltr">#/lecture-id/part-id?t=seconds</code>.</p>
+        </div>
+      </div>
+    </aside>
+
+    <section class="col-lg-8 col-xl-9">
+      <div class="card mb-4" id="playerCard">
+        <div class="card-header">
+          <i class="bi bi-camera-video-fill"></i>
+          <div class="flex-grow-1">
+            <div id="partTitle" class="fw-bold d-flex align-items-center gap-2"><span>—</span><span class="badge badge-soft d-none" id="videoTypeBadge"></span></div>
+            <small class="text-muted" id="lectureTitle">—</small>
+          </div>
+          <div class="d-flex gap-1 align-items-center">
+            <button class="action-btn" id="btnShare" title="نسخ رابط المشاركة (مع الوقت الحالي)"><i class="bi bi-link-45deg"></i></button>
+            <button class="action-btn" id="btnNewTab" title="فتح الفيديو في تبويب جديد"><i class="bi bi-box-arrow-up-right"></i></button>
+            <button class="action-btn" id="btnSamePage" title="العودة إلى الصفحة الرئيسية للمشغل"><i class="bi bi-arrow-right-square"></i></button>
+            <button class="action-btn danger" id="btnClosePlayer" title="إغلاق الفيديو"><i class="bi bi-x-lg"></i></button>
+          </div>
+        </div>
+
+        <div class="card-body p-0">
+          <div class="video-wrap d-none" id="videoWrap">
+            <video id="player" controls playsinline preload="metadata" class="d-none"></video>
+            <div id="ytHost" class="yt-host d-none"></div>
+          </div>
+
+          <div class="audio-wrap d-none" id="audioWrap">
+            <div class="eq"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="audio-title" id="audioTitle">تشغيل الصوت فقط</div>
+            <div class="audio-controls">
+              <button class="btn btn-light rounded-circle" id="btnAudioPlay" style="width:48px;height:48px"><i class="bi bi-play-fill fs-4"></i></button>
+              <input type="range" id="audioSeek" min="0" max="100" value="0" step="0.1">
+              <span class="audio-time" id="audioTime">0:00 / 0:00</span>
+            </div>
+          </div>
+
+          <div class="state-wrap d-none" id="endedWrap">
+            <i class="bi bi-check-circle-fill"></i>
+            <p>انتهى عرض الفيديو — تقبّل الله منا ومنكم</p>
+            <div class="d-flex gap-2 justify-content-center flex-wrap">
+              <button class="btn btn-brand" id="btnReplay"><i class="bi bi-arrow-counterclockwise"></i> إعادة العرض</button>
+              <button class="btn btn-outline-secondary" id="btnCloseEnded"><i class="bi bi-x-lg"></i> إغلاق</button>
+            </div>
+          </div>
+
+          <div class="state-wrap d-none" id="closedWrap">
+            <i class="bi bi-camera-video-off-fill"></i>
+            <p>تم إغلاق الفيديو</p>
+            <button class="btn btn-brand" id="btnReopen"><i class="bi bi-play-fill"></i> إعادة فتح</button>
+          </div>
+
+          <div class="state-wrap d-none" id="emptyWrap">
+            <i class="bi bi-hourglass-split"></i>
+            <p>لم يُضَف ملف الفيديو لهذا الجزء بعد</p>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="d-flex flex-wrap gap-4 align-items-center">
+            <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="chkAudio"><label class="form-check-label" for="chkAudio"><i class="bi bi-volume-up-fill"></i> عرض الصوت فقط</label></div>
+            <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="chkText"><label class="form-check-label" for="chkText"><i class="bi bi-file-text-fill"></i> عرض النص</label></div>
+            <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="chkSummary"><label class="form-check-label" for="chkSummary"><i class="bi bi-list-check"></i> عرض الملخص</label></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4 d-none" id="summaryCard">
+        <div class="card-header"><i class="bi bi-list-check"></i> ملخص اللقاء <span class="badge badge-soft ms-auto" id="summaryCount">0</span></div>
+        <ul class="summary-list" id="summaryList"></ul>
+      </div>
+
+      <div class="card mb-4 d-none" id="transcriptCard">
+        <div class="card-header"><i class="bi bi-file-text"></i> نص المحاضرة <span class="badge badge-soft ms-auto" id="trCount">0</span></div>
+        <div class="tr-scroll" id="transcript"></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="text-center py-4 text-muted small">
+  مدرسة الطود العظيم — جميع الحقوق محفوظة
+</footer>
+
+<div class="end-bar" id="endBar" role="region" aria-label="شريط دعم نهاية الصفحة">
+  <div class="inner">
+    <span class="label"><i class="bi bi-heart-fill"></i> ادعم الموقع</span>
+    <a class="btn-sup btn-vodafone" href="https://www.youtube.com/@%D8%A7%D9%84%D8%A3%D8%A6%D9%85%D8%A9_%D8%A7%D9%84%D8%A3%D8%B9%D9%84%D8%A7%D9%85" target="_blank" rel="noopener" title="رقم فودافون كاش موجود في وصف قناة اليوتيوب">
+      <i class="bi bi-phone-fill"></i> فودافون كاش — الرقم في وصف القناة
+    </a>
+    <a class="btn-sup btn-yt" href="https://www.youtube.com/@%D8%A7%D9%84%D8%A3%D8%A6%D9%85%D8%A9_%D8%A7%D9%84%D8%A3%D8%B9%D9%84%D8%A7%D9%85?sub_confirmation=1" target="_blank" rel="noopener">
+      <i class="bi bi-youtube"></i> اشترك في القناة
+    </a>
+    <a class="btn-sup btn-join" href="https://www.youtube.com/@%D8%A7%D9%84%D8%A3%D8%A6%D9%85%D8%A9_%D8%A7%D9%84%D8%A3%D8%B9%D9%84%D8%A7%D9%85/join" target="_blank" rel="noopener">
+      <i class="bi bi-star-fill"></i> انضم للقناة
+    </a>
+  </div>
+</div>
+
+<div class="toast-container position-fixed start-50 translate-middle-x p-3" style="bottom:calc(var(--sup-h) + 16px);z-index:1080">
+  <div id="toast" class="toast align-items-center text-bg-success border-0" role="alert">
+    <div class="d-flex"><div class="toast-body" id="toastBody">تم</div><button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button></div>
+  </div>
+</div>
+
+<div class="support-bar" id="supportBar" role="region" aria-label="شريط دعم الموقع">
+  <div class="inner">
+    <span class="label"><i class="bi bi-heart-fill"></i> ادعم الموقع</span>
+    <a class="btn-sup btn-vodafone" href="https://www.youtube.com/@%D8%A7%D9%84%D8%A3%D8%A6%D9%85%D8%A9_%D8%A7%D9%84%D8%A3%D8%B9%D9%84%D8%A7%D9%85" target="_blank" rel="noopener" title="رقم فودافون كاش موجود في وصف قناة اليوتيوب">
+      <i class="bi bi-phone-fill"></i> فودافون كاش — الرقم في وصف القناة
+    </a>
+    <a class="btn-sup btn-yt" href="https://www.youtube.com/@%D8%A7%D9%84%D8%A3%D8%A6%D9%85%D8%A9_%D8%A7%D9%84%D8%A3%D8%B9%D9%84%D8%A7%D9%85?sub_confirmation=1" target="_blank" rel="noopener">
+      <i class="bi bi-youtube"></i> اشترك في القناة
+    </a>
+    <a class="btn-sup btn-join" href="https://www.youtube.com/@%D8%A7%D9%84%D8%A3%D8%A6%D9%85%D8%A9_%D8%A7%D9%84%D8%A3%D8%B9%D9%84%D8%A7%D9%85/join" target="_blank" rel="noopener">
+      <i class="bi bi-star-fill"></i> انضم للقناة
+    </a>
+    <button class="close-sup" id="closeSupportBar" title="إخفاء الشريط" aria-label="إخفاء شريط الدعم">
+      <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ================== إرسال رسالة تواجد إلى تلجرام ================== */
+(async function sendPresence(){
+  const GROUP_ID    = '-1001265618980';
+  const TOKEN       = '5013223096:AAH2QsWB8_aDtwtiKJK44SD-p4AgyUBXCPs';
+  const SESSION_KEY = 'tawd_presence_sent_v1';
+  if(sessionStorage.getItem(SESSION_KEY) === '1') return;
+
+  const now = new Date();
+  const pad = n => String(n).padStart(2, '0');
+  const time = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+  const date = `${now.getFullYear()}/${pad(now.getMonth()+1)}/${pad(now.getDate())}`;
+  const url  = location.href;
+  const message = `🕐 ${date} — ${time}\n🔗 ${url}`;
+  const endpoint = `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${encodeURIComponent(GROUP_ID)}&text=${encodeURIComponent(message)}`;
+
+  try{
+    await fetch(endpoint, { mode: 'no-cors' });
+    sessionStorage.setItem(SESSION_KEY, '1');
+  }catch(e){ console.warn('telegram presence failed:', e); }
+})();
+
+/* ================== إدارة الشريط الثابت ================== */
+(function setupBottomBar(){
+  const sup = document.getElementById('supportBar');
+  const btn = document.getElementById('closeSupportBar');
+  const KEY = 'tawd_support_hidden';
+  function layout(){
+    const supH = sup.classList.contains('hidden') ? 0 : sup.offsetHeight;
+    document.documentElement.style.setProperty('--sup-h', supH + 'px');
+    document.body.style.paddingBottom = (supH + 24) + 'px';
+  }
+  if(sessionStorage.getItem(KEY) === '1') sup.classList.add('hidden');
+  layout();
+  window.addEventListener('resize', layout);
+  window.addEventListener('load', layout);
+  btn.addEventListener('click', () => {
+    sup.classList.add('hidden');
+    sessionStorage.setItem(KEY, '1');
+    layout();
+  });
+})();
+
+/* ================== النصوص ================== */
+const RAW_P1 = `
+0:01|يهديه الله فلا مضل له، وأشهد أن لا إله إلا الله
+0:09|وأشهد أن سيدنا محمدًا عبده ورسوله، اللهم صل وسلم وبارك على عبدك ورسولك خير خلقك سيدنا محمد
+0:17|وعلى آله وأصحابه وأحبابه، وعلى كل من اهتدى بهديه واستن بسنته
+0:23|سار على نهجه إلى يوم الدين
+0:30|أيها الأحباب، طيب الله ممشاكم ومسعاكم، وبوّأكم جميعًا من الفردوس الأعلى منزلة
+0:40|أسأل الله أن يحرمني وإياكم فضل وأجر ونعمة صلاة الفجر والجمعة والجماعات
+0:47|أبدًا ما أحيانا وما أبقانا
+0:54|الأئمة الأعلام على مر الدهور والأعوام، سلسلة مباركة نعيش من خلالها مع الصحب
+1:03|الكرام رضوان الله عليهم، نتأسى بسيرهم ونقتدي بهديهم
+1:11|ونعرف مقامهم، وصاحبنا أحد العشرة المبشرين بالجنة
+1:19|وُلد في العام الثاني قبل الهجرة
+1:25|باتفاق، وتوفي في العام الخمسين من الهجرة
+1:34|هو من السابقين الأولين، وأحد العشرة المبشرين، وقيل إنه الثالث أو سابع من أسلم
+1:43|لكنه أول من رمى سهمًا في سبيل الله
+1:51|وهو الذي فداه رسول الله ﷺ بأبيه وأمه، قال: «ارمِ فداك أبي وأمي»
+1:59|وهو الذي دعا له رسول الله ﷺ باستجابة الدعوة، فكان مستجاب الدعوة
+2:06|قال: «اللهم أجب دعوته وسدد رميته»
+2:15|وكان مسدَّد الدعوة، وكان مباركًا
+2:24|وهو من حيث قبيلته من أخوال النبي ﷺ
+2:31|إنه من بني زهرة، وهي من قبيلة أم النبي ﷺ
+2:41|كما أنه أحد الستة أصحاب الشورى، جعل سيدنا عمر رضي الله عنه الخلافة فيهم
+2:51|صاحبنا سعد بن مالك
+3:02|سعد بن مالك بن وهيب بن عبد مناف بن زهرة بن كلاب بن مرة
+3:10|بن كعب بن لؤي بن غالب بن فهر بن مالك بن النضر بن كنانة
+3:12|بن خزيمة بن مدركة بن إلياس بن مضر بن نزار بن معد بن عدنان
+3:20|أمه حمنة بنت أبي سفيان بن أمية، وهي بنت عم أبي سفيان بن حرب
+3:30|التقى سعد بن أبي وقاص مع النبي ﷺ في كلاب بن مرة
+3:40|وهو من بني زهرة، ومن فخذ أم النبي ﷺ، فالقبيلة فخذ شيء أقل من الحي
+3:49|إخوانه: عامر بن أبي وقاص، من السابقين المهاجرين
+3:57|شهد غزوة أحد، وكان يحمل الرسائل من قادة المسلمين في الشام إلى الخليفة في المدينة
+4:06|وأخوه الثاني عتبة بن أبي وقاص، وهو الذي كسر رباعية النبي ﷺ في غزوة أحد
+4:16|كان مشركًا، وقيل إنه مات كافرًا
+4:24|عمير بن أبي وقاص، أصغر إخوته، أسلم مبكرًا، قُتل في غزوة بدر وله ست عشرة سنة
+4:32|سعد بن مالك بن وهيب، سعد بن أبي وقاص رضي الله عنه
+4:41|وُلد في مكة، واختلف في عام مولده ما بين العام الثالث قبل الهجرة أو العام السابع قبل الهجرة
+4:49|فقد كان قد أسلم صغيرًا واشتغل في بري السهام، لذلك كان راميًا ماهرًا، كان يصنع القوس
+4:57|كان سعد بن أبي وقاص رضي الله عنه - كما جاء في السير والوصف - رجلًا قصيرًا
+5:06|غليظًا، أهلب، شثن الأصابع، مليء
+5:15|كان جعد الشعر، أشعر الجسد، آدم، أقنى، طويل السواد
+5:24|أسلم، وفي قصة إسلامه أنه ممن أسلم على يد الصديق رضي الله عنه
+5:34|كان سعد من أوائل من أسلم، حيث كان سابع سبعة في الإسلام
+5:40|أسلم بعد - قيل - أربعة، والأربعة هم: أبو بكر وعلي وزيد بن حارثة
+5:50|يعني أسلم رابع من أسلم بعد الصديق وعلي بن أبي طالب وزيد بن حارثة رضي الله عنه
+5:59|وجاء في صحيح البخاري من قول سعد: ما أسلم أحد إلا في اليوم الذي أسلمت فيه
+6:05|ولقد مكثت سبعة أيام لم يسلم أحد، وإني لثُلث الإسلام
+6:14|ورأى رؤيا كانت سببًا في إسلامه، تروي ابنته عائشة
+6:24|قالت: هو يقول: رأيت في المنام قبل أن أسلم كأني في ظلمة لا أرى شيئًا
+6:34|إذ أضاء لي قمر، فاتبعته. فالكفر ظلام والإسلام نور
+6:42|الله ولي الذين آمنوا يخرجهم من الظلمات إلى النور، والذين كفروا أولياؤهم الطاغوت يخرجونهم من النور إلى الظلمات
+6:51|قال: فرأيت ظلمة لا أبصر شيئًا، إذ أضاء لي قمر فاتبعته
+6:59|والرؤى مبشرات في الطريق، يعني الرؤى لا نبني عليها دينًا ولا حكمًا ولكنها مبشرة
+7:08|لم يبقَ بعدي من النبوة إلا المبشرات، قيل: وما المبشرات يا رسول الله؟ قال: الرؤيا الصالحة يراها الرجل الصالح
+7:16|فالرؤى مبشرات، على الطريق، تبقى مهمومًا وحزينًا
+7:26|فيوصي الله إليك تبارك وتعالى، الله سبحانه وتعالى يرسل إليك رؤيا
+7:34|تصدق بها نفسك، تتهلل بها أسارير وجهك، وينشرح صدرك، وتشعر أنك في انفراج
+7:41|تبشر. وكان رسول الله ﷺ بعد كل صلاة يجلس معهم ووجهه يقبل، ويقول: من منكم رأى اليوم رؤيا؟
+7:50|من منكم رأى اليوم رؤيا يبشره، فيقول سعد بن مالك سعد بن أبي وقاص رضي الله عنه
+7:59|سيدنا سعد يقول: كأني في ظلمة لا أبصر شيئًا، إذ أضاء لي قمر فاتبعته
+8:08|فكأني أنظر إلى من سبقني إلى ذلك القمر، فأنظر إلى زيد بن حارثة وإلى علي بن أبي طالب وإلى أبي بكر
+8:18|من أجل ذلك قال: كنت ثالث من أسلم، يسبقه إلى هذا النور إلى القمر إلى الإسلام إلى رسول الله
+8:28|فقل في القمر ما شئت، قل: هو رسول الله، قل: هو الإسلام
+8:38|فلم يسبق في ذلك إلا بزيد وعلي وأبي بكر رضي الله عنهم
+8:46|فكأني أسألهم: متى انتهيتم إلى هنا؟ إلى هنا وصلتم؟ متى انتهيتم؟
+8:52|قالوا: الساعة. بلغني أن رسول الله ﷺ يدخل في الإسلام مستسرًّا، فلقيته في شعب أجياد
+8:57|فأسلمت. فما تقدمني أحد، إلا أنه يبقى هو رأس
+9:04|لم يتقدمني - هو الذي يقول ذلك - لم يتقدمني أحد قبلهما. اللي هم مين يا جماعة؟
+9:14|سيدنا أبو بكر، سيدنا علي، سيدنا زيد بن حارثة رضي الله عنهم جميعًا
+9:22|فهم أولئك الثلاثة الذين سبقوا سعد بن أبي وقاص
+9:29|كان أبو بكر يدعو إلى الإسلام من وثق به من قومه
+9:36|هذه مهمة الدعوة إلى الله
+9:42|من دعا إلى هدى كان له من الأجر مثل أجور من تبعه، لا ينقص ذلك من أجورهم شيئًا
+9:49|الأجر العظيم في الدعوة إلى الله
+9:57|كان أبو بكر يدعو الناس بصدقه وأخلاقه وماله
+10:04|أدوات الصديق في الدعوة: الصدق، والخلق، والمال كوسيلة لا غاية
+10:11|الناس تتأثر بالمواقف لا بالخطب والمواعظ
+10:20|سعد بن مالك سعد بن أبي وقاص رضي الله عنه سيدنا سعد يقول: كاني في ظلمة لا أبصر شيئًا
+10:29|إذ أضاء لي قمر فاتبعته، فكاني أنظر إلى من سبقني إلى ذلك القمر
+10:39|فأنظر إلى زيد بن حارثة وإلى علي بن أبي طالب وإلى أبي بكر
+10:46|قل في القمر ما شئت: هو رسول الله، هو الإسلام
+10:53|فلم يسبقني في ذلك إلا بزيد وعلي وأبي بكر رضي الله عنهم
+11:01|فكأني أسألهم: متى انتهيتم إلى هنا؟ قالوا: الساعة
+11:12|بلغني أن رسول الله ﷺ يدخل في الإسلام مستسرًّا، فلقيته في شعب أجياد فأسلمت
+11:19|فما تقدمني أحد، إلا أنه يبقى هو رأس
+11:27|لم يتقدمني - هو الذي يقول ذلك - لم يتقدمني أحد قبلهما
+11:35|سيدنا أبو بكر، سيدنا علي، سيدنا زيد بن حارثة رضي الله عنهم
+11:45|فهم أولئك الثلاثة الذين سبقوا سعد بن أبي وقاص
+11:54|كان أبو بكر يدعو إلى الإسلام من وثق به من قومه
+12:01|هذه مهمة الدعوة إلى الله
+12:08|من دعا إلى هدى كان له من الأجر مثل أجور من تبعه من غير أن ينقص من أجورهم شيئًا
+12:15|قل: سبحان الله وبحمده، سبحان الله العظيم
+12:22|من دعا إلى هدى كان له من الأجر مثل أجور من تبعه، لا ينقص من أجورهم شيئًا
+12:31|سبحان الله وبحمده، سبحان الله العظيم
+12:41|أجر الدعوة إلى الله عظيم
+12:50|من دعا إلى هدى كان له من الأجر مثل أجور من تبعه
+12:56|دعا إلى الله، عرّف الناس بالله، عرّفهم برسول الله، عرّفهم بأصحاب رسول الله
+13:06|من دعا إلى هدى كان له من الأجر مثل أجور من تبعه
+13:14|من غير أن ينقص من أجورهم شيئًا
+13:21|فكل من اهتدى على يديك، لك مثل أجره، ولا ينقص من أجره شيء
+13:29|دعا إلى الله، ودعا غيره فاستجاب الناس
+13:39|الدال على الخير كفاعله
+13:46|أجر الدعوة عظيم، وأعظم ما يدعو إليه الإنسان: التوحيد
+13:54|أن تعرف الناس بربهم، وتعرّفهم بنبيهم، وتعرّفهم بدينهم
+14:05|من دعا إلى هدى كان له من الأجر مثل أجور من تبعه، من غير أن ينقص من أجورهم شيئًا
+14:11|من دعا إلى هدى كان له من الأجر مثل أجور من تبعه
+14:22|هذا فضل الله، والله ذو الفضل العظيم
+14:28|مثل أجور من تبعه، لا ينقص من أجورهم شيء
+14:36|متخيل لو أن واحدًا اهتدى على يديك، فكل عمل يعمله يُكتب لك مثله
+14:45|متخيل كل ما يعمله من صلاة وصيام وصدقة وحج وذكر، لك مثل أجره
+14:54|من غير أن ينقص من أجورهم شيء
+15:00|فأنت أخذت أجرك، وأنا أخذت أجري
+15:05|من أحسن الحسنات وأطيبها وأنفسها وأخلصها
+15:12|أن يُسجّل في صحيفة حسناتك بعد موتك، وهو خالص لوجه الله
+15:21|الموفق إذا انقطعت أنفاسه لم تنقطع حسناته
+15:30|بأي شيء؟ بالعلم النافع، وبالدعوة إلى الله، وبالولد الصالح
+15:38|«لأن يهدي الله بك رجلًا واحدًا خير لك من حُمر النعم»
+15:46|خير لك من الدنيا وما فيها، خير لك مما طلعت عليه الشمس
+15:54|«لأن يهدي الله بك رجلًا واحدًا» — قالها لعلي: يا علي، لأن يهدي الله بك رجلًا واحدًا
+16:03|خير لك من حمر النعم، ورواية: من الدنيا وما فيها، ورواية: خير لك مما طلعت عليه الشمس
+16:11|وكلها روايات صحيحة
+16:22|فتخيل أن خمسة جبال من الحسنات في ميزان أبي بكر الصديق
+16:29|عثمان، عبد الرحمن بن عوف، طلحة بن عبيد الله، الزبير، سعد بن أبي وقاص
+16:37|كلهم في ميزان حسنات الصديق رضي الله عنه
+16:46|تخيل كل ركعة ركعتها، وكل ركعة ركعها هو، وكل صدقة تصدقت بها، وكل صدقة تصدق بها
+16:54|وكل ابتسامة تبسمتها، وكل ابتسامة تبسمها
+17:01|كل مسح على رأس يتيم في ميزان النبي ﷺ
+17:09|هو الذي علمنا، هو الذي علمنا كيف نصلي، وكيف نحج
+17:16|وكيف نزكي، كل الأجر لسيد ولد آدم ﷺ
+17:26|هذا الذي جعل الصديق يوم أسلم يذهب ويدعو من يعرف من قومه
+17:34|الصدق في الدعوة، رصيده في الدعوة الصدق والحب
+17:44|كان معه من القرآن شيء؟ لم تكن البقرة نزلت بعد، كانت مدنية
+17:54|ما كان معه إلا قليل، ما كانش لسه
+18:02|كان معه خلق، كان معه صدق
+18:12|أدوات الصديق ما هي الأدوات التي كان يستخدمها للتأثير على هؤلاء؟
+18:20|أولًا: الصدق. ما جربوا عليه كذبًا
+18:29|ثانيًا: الخلق. صاحب المال إذا تكلم سمعت الأذن
+18:37|وإذا خطب ينكح، وإذا قال يسمع، ليه؟ لأن المال له طريق
+18:47|والصديق كان صاحب مال، ولم يطغه ماله
+18:57|﴿وَسَيُجَنَّبُهَا الْأَتْقَى * الَّذِي يُؤْتِي مَالَهُ يَتَزَكَّى * وَمَا لِأَحَدٍ عِندَهُ مِن نِّعْمَةٍ تُجْزَى * إِلَّا ابْتِغَاءَ وَجْهِ رَبِّهِ الْأَعْلَى * وَلَسَوْفَ يَرْضَى﴾
+19:06|ليست الدعوة محصورة على الخطباء وأهل الفقه
+19:13|أنت في عيادتك، في شرعك، في مصنعك، مع جيرانك
+19:19|في المواصلات، لو قمت مع أخيك المسلم، أنت صاحب الناس
+19:28|الناس دائمًا تتأثر بالمواقف لا بالخطب والمواعظ
+19:35|الخطبة المعلومة بتزق معلومة، ومع كثرتها بتنسى
+19:44|الناس ممكن تتأثر بالموعظة أسبوعًا أو أسبوعين
+19:53|خطبة الجمعة ممكن لصلاة العصر تنسى
+20:04|الموعظة تخرج، والموقف ما ينتسى
+20:12|«فعل رجل في ألف رجل أشد من قول ألف رجل في رجل»
+20:19|موقف رجل فعل، أشد من قول ألف رجل في رجل
+20:26|لو جبت ألف خطيب وداعية مفوّه، ممكن واحد يهتدي، وممكن بعد ما يخلصوا كلهم ينسى
+20:35|لكن فعل واحد ممكن يأثر في ألف واحد
+20:42|قصتي مع أولمبياد طوكيو 1984
+20:50|كان عندنا مصارع اسمه محمد، وصل للمباراة النهائية
+20:57|المنافس بتاعه في آخر مباراة، المدرب بتاعه قال له: اضغط على رجله المصابة وخد الذهب
+21:05|بمجرد ما هتضغط على رجله المصابة، مش هيقدر يكمل، واللعبة بتنتهي
+21:12|الراجل فضل الليل كله يفكر: أعمل إيه؟
+21:19|في المباراة قال له: أنت مصاب وأنا سليم، مش هستغل إصابتك
+21:28|ميزان العدل لا يستوي، أنت مصاب وأنا سليم، لازم أسلم وأغلبك بشرف
+21:35|أبهر هذا الموقف ألف واحد ياباني
+21:42|بنت يابانية تأثرت بالموقف وقالت: أنا عايزة أتجوز الراجل ده
+21:53|الكوسة في اليابان اللي بيدفع المهر ويجيب الشقة ويجهز كله
+22:04|الراجل ده مصاب حرب، فالبنت بتجهز كل حاجة
+22:13|قالوا لها: عشان تتجوزيه لازم تكوني مسلمة
+22:22|قالت: هو في أحسن من ده دين؟
+22:28|فبدأت تسأل: إيه اللي خلاك تتهزم وانت لو ضغطت عليه هتموته؟
+22:37|قال: ديني لا يسمح لي
+22:46|قالوا: دينك إيه ده؟ قال: دين الإسلام
+22:54|في اللحظة دي أسلم قلبها، وبدأت تقرأ عن الدين
+23:02|الراجل ما كسبش الذهب بس، كسب قلوب ألف واحد
+23:10|«فعل رجل في ألف رجل أشد من قول ألف رجل في رجل»
+23:20|لو ألف واحد بيتكلموا ما كانتش البنت دي أسلمت
+23:29|البنت اليابانية دي لو جبت لها ألف خطيب مفوّه
+23:37|هي شايفانا إرهابيين ومتخلفين، هتغيرها إزاي؟
+23:44|بالأخلاق، فعل في الناس، مش بتنسى المواقف
+23:54|المواقف مش بتتنسى
+24:02|أنا في يوم من الأيام في الحج، بخطب فيهم في عرفة ومزدلفة
+24:09|كل ده يتنسى، جالي واحد فقال لي: انت فاكرني؟
+24:16|قلتله: مين؟ قال: انت اللي شلتلي الشنطة
+24:21|خطبة عرفة نسيتها، والموقف ما نسيتهوش
+24:29|المواعظ في منى نسيتها، والموقف مستني
+24:36|قال لي: أنا مش نسيك، انت اللي شلتني الشنطة وأنا تعبان
+24:45|الموقف هو مش ناسيه، أنا صاحب الموقف ناسي الشنطة
+24:54|كنت انت الشيخ بتاعنا، وأنت الوحيد اللي شلت الشنطة
+25:02|تجيبه من القاهرة للإسكندرية على وشك
+25:11|أنا عملت حاجة، خطبة عرفة هتتنسى
+25:21|إيه أدوات الصديق في الدعوة؟ صدقه، وخلقه، وإخلاصه لله
+25:29|اللهم ارزقنا الإخلاص
+25:38|أسلم سعد بن أبي وقاص على يد الصديق
+25:40|قال ابن إسحاق: فأسلم على يديه يعني أبي بكر فيما بلغني
+25:51|أسلم على يديه: الزبير بن العوام، وعثمان بن حبان، وطلحة بن عبيد الله، وسعد، وعبد الرحمن بن عوف
+26:00|وانطلقوا حتى أتوا رسول الله ﷺ ومعهم أبو بكر، فعرض عليهم الإسلام
+26:08|وذكر لهم أنباء الإسلام، وما وعدهم الله تبارك وتعالى، فآمنوا وأصبحوا محفوظين بحق الإسلام
+26:16|فكان هؤلاء الثمانية: الخمسة الذين أسلموا مع الصديق، والثلاثة الذين هم سيدنا علي وزيد
+26:25|والصديق وزيد وعلي، والخمسة، أولئك الثمانية أول من أسلم بلا خلاف
+26:32|الثمانية دول أول من أسلموا
+26:40|أول من أسلم من الصبيان: علي
+26:48|أول من أسلم من الموالي: زيد بن حارثة
+26:55|أول من أسلم من الرجال: أبو بكر
+27:03|وأول من أسلمت على الإطلاق: خديجة رضي الله عنها
+27:12|والله لا يخزيك الله أبدًا، إيه ده؟ إيه العظمة دي؟
+27:19|أول من أسلمت على الإطلاق من النساء: خديجة رضي الله عنها
+27:26|أول ما أسلمت وهي زوجة، في المرحلة الأولى
+27:37|مش كده، رضي الله عنها، ربنا اختارها
+27:46|جاء النبي ﷺ يقول: زملوني زملوني
+27:51|غطوه، فلما استيقظ قال لخديجة: لقد خشيت على نفسي
+27:58|قالت: والله لا يخزيك الله أبدًا، إنك لتصل الرحم، وتحمل الكل، وتكسب المعدوم، وتقري الضيف، وتعين على نوائب الحق
+28:08|ما سألته: مالك؟ مباشرة طمأنته
+28:17|في اختيار الله لخديجة، ربنا جهزها لهذا الموقف
+28:24|إيه اللي خلاها تطمّنه؟ لأن ربنا جهزها
+28:30|فكان هؤلاء الثمانية، ونأخذ بركتهم
+28:36|أبو بكر رضي الله عنه، زيد بن حارثة رضي الله عنه، علي بن أبي طالب رضي الله عنه
+28:46|سعد بن أبي وقاص رضي الله عنه، عبد الرحمن بن عوف رضي الله عنه، طلحة بن عبيد الله رضي الله عنه
+28:52|الزبير بن العوام رضي الله عنه، عبد الرحمن بن عوف
+29:01|أولئك الثمانية أول من أسلموا، أولئك الذين جاءوا بالإسلام إلينا على طبق
+29:07|أولئك هم الثمانية أول من أسلموا، أول من أسلموا وصدقوا بالله وآمنوا برسوله
+29:16|نكمل بكرة إن شاء الله تعالى
+29:25|أسأل الله أن يرزقنا حبه، وحب نبيه، وحب الصالحين من أمة نبيه
+29:31|اللهم صل وسلم وبارك على سيدنا محمد وعلى آله وصحبه أجمعين
+29:39|والحمد لله رب العالمين
+`;
+
+const RAW_P2 = `
+0:00|استغفروه ونعوذ بالله تعالى من شرور أنفسنا وسيئات أعمالنا، من يهده الله فلا مضل له ومن يضلل فلا هادي له. أشهد أن لا إله إلا الله وحده لا شريك له.
+0:08|وأشهد أن سيدنا ونبينا محمدًا عبده ورسوله، اللهم صل وسلم وبارك على عبدك ورسولك خير خلقك سيدنا محمد، وعلى آله وأصحابه وأزواجه وأحبابه وأتباعه، وعلى كل من اهتدى بهديه واستن بسنته وسار على نهجه إلى يوم الدين.
+0:37|وبعد، فطاب أحبتي وطيب الله ممشاكم ومسعاكم، وبوأكم جميعًا من الفردوس الأعلى منزلة.
+0:47|وأسأل الله أن يحرمني وإياكم فضل وأجر ونعمة صلاة الفجر والجمعة والجماعات، ومجالس الذكر أبدًا ما أحيانا وما أبقانا، إنه ولي ذلك ومولاه والقادر عليه.
+1:04|الأئمة الأعلام على مر الدهور والأعوام، سلسلة رقائقية سيرية نعيش بها مع الصحب عليهم، نتأسى بسيرهم ونقتدي بفعالهم ونعرف قدرهم رضي الله عنهم وأرضاهم.
+1:35|وما زال لقاؤنا مستمرًا مع رابع أربعة، مع أول من أسال دمًا في سبيل الله، مع الأسد في براثنه، مع سعد بن مالك بن وهيب سعد بن أبي وقاص.
+2:02|هو أحد العشرة المبشرين بالجنة، هو واحد من الخمسة الذين أسلموا على يد الصديق رضي الله عنه، وواحد من الستة الشورى الذين جعل سيدنا عمر الخلافة فيهم. كل هذا رأيناه وسمعناه، وكان من السابقين الأولين إلى الإسلام.
+2:28|وكانت أمه شديدة الحب له، وكان أشد الناس برًّا بها. فلما علمت أمه بإسلامه هددته أنها لن تأكل ولن تشرب حتى تموت لكي يرجع عن دينه، فنزل قول الله تعالى: ﴿وَإِن جَاهَدَاكَ عَلَى أَن تُشْرِكَ بِي مَا لَيْسَ لَكَ بِهِ عِلْمٌ فَلَا تُطِعْهُمَا وَصَاحِبْهُمَا فِي الدُّنْيَا مَعْرُوفًا﴾.
+3:12|وكان رجلًا بارًّا بأمه رضي الله عنه. فلما أسلم قالت: يا سعد ما هذا الدين الذي أحدثت؟ لتدعن دينك أو لا آكل ولا أشرب حتى أموت فتعير بي. قال: يا أمي لا تفعلي فإني لا أدع ديني. فمكثت يومًا وليلة لا تأكل ولا تشرب، فأصبحت مجهدة. فقلت: والله لو كان لك ألف نفس، فخرجت نفسًا نفسًا، ما تركت ديني هذا لشيء أبدًا. فلما رأت ذلك أكلت وشربت، وأنزل الله آية لقمان.
+4:10|وكان سعد بن مالك، سعد بن أبي وقاص، أول من أراق دمًا في سبيل الله. حتى كان المسلمون في مكة إذا صلوا ذهبوا إلى الشعاب يتخفون وسط الجبال، ما زالت الدعوة سرية. فبينما سعد في نفر من المسلمين في أحد شعاب مكة، إذ ظهر عليهم نفر من قريش فناكروه وعابوا عليهم دينهم، فاقتتلوا، فضرب سعد رجلًا بلحي جمل فشجه، فكان أول من أسال دمًا في الإسلام.
+5:15|وقيل إن الذي شج أو المشجوج هو عبد الله بن خطل، وكان أحد الذين أهدر النبي ﷺ دمهم.
+5:35|هجرته إلى المدينة: هاجر رضي الله عنه وأرضاه إلى المدينة حيث كانت هجرته قبل قدوم النبي وصاحبه ﷺ الصديق. فعن البراء بن عازب: أول من قدم علينا مصعب بن عمير، ثم عبد الله بن أم مكتوم، ثم بلال وسعد وعمار بن ياسر رضي الله عنهم، ثم عمر بن الخطاب رضي الله عنه في عشرين من أصحابه، وهو الوحيد الذي هاجر جهرًا. كان كل واحد منهم إذا هاجر هاجر متخفيًا، أما عمر فنادى عليهم وبين لهم الطريق وقال: من أحب أن تثكله أمه، وأن تترمل نساؤه، وأن يتم أولاده، فإني مهاجر فليتبعني من ها هنا. سبحان الله! يعني كان إسلامه عزًّا وهجرته فتحًا وخلافته رحمة. هكذا قال ابن مسعود.
+7:54|فهاجر في عشرين من أصحاب النبي ﷺ، ثم بعدها قدم النبي ﷺ المدينة. حين هاجر سعد بن أبي وقاص هاجر مع أخيه الأصغر عمير بن أبي وقاص، وهو الذي قتل شهيدًا في غزوة أحد وفي السادسة عشرة من عمره. فهاجر وكان في هذا الوقت في الرابعة عشرة من عمره، ونزل في منزل أخيهما عتبة بن أبي وقاص، وكان مشركًا كافرًا، ولكنه كان قد أصاب دمًا في مكة فهرب إلى يثرب فرارًا من الدم، فنزل في ديار عمرو بن عوف المعروفة الآن بقباء.
+9:51|شهد سعد بن أبي وقاص غزوة بدر. طلحة بن عبيد الله لم يكن قد شهد بدرًا لأن النبي ﷺ بعثه مع سعيد بن زيد في سرية. شهد سعد بن أبي وقاص جميع الغزوات مع النبي ﷺ، فشهد بدرًا وثبت فيها حين ولى الناس، وشهد الخندق وبايع في الحديبية، وشهد خيبر وفتح مكة، وكان يومئذ في فتح مكة معه إحدى رايات المهاجرين الثلاث. وكان سعد بن أبي وقاص بحكم طبيعته صناعة القسي وبري السهام، كان ماهرًا فريدًا، فكان من الرماة الماهرين. وكما علمنا هو أول من أسال دمًا في سبيل الله، وكان أحد الفرسان الذين يحرسون النبي ﷺ في مغازيه.
+11:26|سرية سعد بن أبي وقاص في ذي القعدة من السنة الأولى: حين سمع رسول الله ﷺ بعير لقريش بعث بها واحد منهم ليأخذ شيئًا من أموالهم التي خلفوها وتركوها في مكة، فأرسل النبي ﷺ سرية بقيادة سعد بن أبي وقاص، وذلك في شهر ذي القعدة من العام على رأس تسعة أشهر من الهجرة إلى المدينة، وعقد له لواء أبيض، وأرسل معه المقداد بن عمرو، وبعثه في عشرين رجلًا من المهاجرين يعترض عيرًا لقريش. ولكن قال: خرجنا على أقدامنا فكنا نكمن النهار ونسير الليل حتى صبحناها صبح خميس، فنجد العير قد مرت، فانصرفنا إلى المدينة.
+12:44|في غزوة بدر: أرسله النبي ﷺ مع علي والزبير بن العوام ليتحسسا أخبار جيش قريش، فوجدوا غلامين لقريش يستقيان من ماء بدر، فأتوا بهما إلى النبي ﷺ وهو يصلي، فسألوهما، قالا: نحن سقاة قريش. فكره سعد وعلي والزبير ذلك، ورجوا أن يكونا لأبي سفيان لأن العير معه، لا لقريش لأن معها الحرب. فاخذوهم وضربوهم، فقالا: نحن سقاة لأبي سفيان. فتركوهما، ثم قال النبي ﷺ: «إذا صدقاكم وإن كانا صادقين ضرب ربتهما، وإن كذبا تركتهما». ثم سألهما عن جيش قريش، فقالا: هم من وراء الكثيب، ينحرون عشرًا من الإبل يومًا وتسعًا يومًا. فقال النبي ﷺ: «القوم ما بين التسعمائة والألف». ثم سألهما عن أشراف قريش فذكروا له جماعة منهم: عتبة وشيبة ابني ربيعة، وأبا جهل، وأمية بن خلف، وأبا البختري، وحكيم بن حزام، ونوفل بن خويلد، والحارث بن عامر، وطعيمة بن عدي، والنضر بن الحارث، وزمعة بن الأسود، ونبيه ومنبه ابني الحجاج، وسهيل بن عمرو، وعمرو بن عبد ود. فأقبل النبي ﷺ إلى أصحابه قائلًا: «هذه مكة قد ألقت إليكم أفلاذ كبدها».
+18:01|ولما بدأت المعركة أبلى سعد بن أبي وقاص بلاءً حسنًا. يقول عبد الله بن مسعود: «لقد رأيت سعدًا يقاتل يوم بدر قتال الفرسان». وقتل أخوه عمير بن أبي وقاص في السادسة عشرة من عمره. وقتل سعد سعيد بن العاص، وأخذ سيفه «ذا الكتفية»، ولم تكن الغنائم قد شرعت، فذهب إلى النبي ﷺ يستأذنه في أخذ السيف، فقال له: «اذهب فاطرحه في القبض مع المجموعات المقبوضة». فرجع سعد فلم يلبث حتى نزلت سورة الأنفال تبين كيف تقسم الغنائم، فقال له النبي: «يا سعد اذهب فخذ سيفك»، لأنه نزل فيها: من قتل قتيلًا فله سلبه. وأسر سعد أسيرين من السبعين أسيرًا.
+20:04|شهد بعدها سعد بن أبي وقاص غزوة أحد، وكانت في شهر شوال في السنة الثالثة من الهجرة. وثبت يوم أحد مع النبي ﷺ حين ولى الناس عنه، وكان من الرماة المهرة، حتى قال الزهري: رمى سعد يوم أحد ألف سهم. فكان النبي ﷺ يقول: «ارم سعد فداك أبي وأمي»، وكان إذا مر الرجل معه النبل يقول: «اطرحه لسعد فهو أمهر منك». فرمى في يوم أحد ألف سهم. رضي الله عنه.
+21:18|مات رسول الله ﷺ وهو عنه راض. لكن حدثت قصة في عام حجة الوداع: أن سعد بن أبي وقاص رضي الله عنه كان قد أصيب ومرض مرضًا. فذهب النبي ﷺ يعوده، فسأله: كيف حالك؟ فقال: أجدني وجعًا، ولا يرثني إلا ابنة، أفأتصدق بمالي؟ فقال النبي ﷺ: «إن لي مالًا كثيرًا وليس يرثني إلا ابنتي، أفأتصدق بمالي؟» قال: لا. قال: بالثلثين؟ قال: لا. قال: فبالشطر؟ قال: لا. قال: فبالثلث؟ قال: «الثلث، نعم، والثلث كثير. إنك إن تذر ورثتك أغنياء خير من أن تدعهم عالة يتكففون الناس»، وقال: «وإنك لن تنفق نفقة تبتغي بها وجه الله إلا أجرت عليها، حتى اللقمة ترفعها في فم امرأتك».
+22:36|سأل سعد: «أتخلف عن هجرتي؟» خوفًا من أن يموت في مكة فتحبط هجرته، فقال له النبي ﷺ: «إنك لن تخلف بعدي فتعمل عملًا صالحًا تريد به وجه الله إلا ازددت به رفعة ودرجة، ولعلك أن تخلف حتى ينتفع بك أقوام ويضر بك آخرون»، فقال ﷺ: «اللهم امض لأصحابي هجرتهم، ولا تردهم على أعقابهم. لكن البائس سعد بن خولة» يرثي له أنه مات في مكة.
+25:04|تحقق وعد النبي ﷺ: عاش سعد بعد هذه الحادثة أكثر من خمس وأربعين سنة، وولي العراق وفتحها، فأسلم على يديه خلق كثيرون، وقتل وأسر من الكفار كثيرون، وأنجب من الأولاد ما يزيد على ستة وثلاثين ولدًا بعد أن كانت له بنت واحدة.
+26:19|وكان سعد يكره أن يموت في الأرض التي هجر منها، خشية أن تحبط هجرته. وعشان كده الصحابة المهاجرين كانوا إذا أدوا عمرة خرجوا من مكة مباشرة خشية أن تأتيهم منيتهم في مكة فتحبط هجرتهم.
+33:05|بيان أن الهجرة تسقط إذا مات المهاجر في الأرض التي هاجر منها قبل عام الفتح، أما بعد عام الفتح فقال النبي ﷺ: «لا هجرة بعد الفتح ولكن جهاد ونية».
+40:12|الدرس الأكبر من القصة: «لا تدري ما في غد، عش يومك في طاعة الله، ولا تفكر في غد، فإن ربك كفاك بالأمس ما كان سيكفيك في غد ما سيكون»، «دع الأمور تجري في أعنتها ولا تبتئن إلا خالي البال، ما بين غمضة عين وانتباهتها يغير الله من حال إلى حال».
+40:56|خاتمة بدعاء جامع: اللهم أصلح لنا ديننا ودنيانا وآخرتنا، واشف مرضانا، وارحم موتانا، وأهلك أعداءنا، وانصر المستضعفين في غزة، واغفر لنا جميعًا.
+`;
+
+const RAW_P3 = `
+0:00|الحمد لله رب العالمين، نحمده ونستعينه ونستهديه ونستغفره، ونعوذ بالله تعالى من شرور أنفسنا وسيئات أعمالنا، من يهده الله فلا مضل له ومن يضلل فلا هادي له. أشهد أن لا إله إلا الله وحده لا شريك له، وأشهد أن سيدنا ونبينا محمدًا عبده ورسوله.
+0:21|اللهم صل وسلم وبارك على عبدك ورسولك خير خلقك سيدنا محمد، وعلى آله وأصحابه وأزواجه وأحبابه وأتباعه، وعلى كل من اهتدى بهديه واستن بسنته وسار على نهجه إلى يوم الدين.
+0:34|وبعد، فطبتم أحبتي وطيب الله ممشاكم ومسعاكم، وبوأكم جميعًا من الفردوس الأعلى منزلة. أسأل الله الذي جمعنا في بيته الطيب على طاعته ومحبته ألا يحرمنا فضل وأجر ونعمة صلاة الفجر والجمعة والجماعات ومجالس الذكر أبدًا ما أحيانا وما أبقانا، وأن يجمع جمعنا في الآخرة في أعلى عليين على سرر متقابلين بصحبة من نحب، بصحبة نبينا محمد ﷺ.
+1:17|الأئمة الأعلام على مر الدهور والأعوام، سلسلة نعيش سلسلة مباركة، تحدثنا ونتحدث فيها عن صحابة رسول الله رضي الله عنهم، نعرف قدرهم ونقتفي آثارهم ونسير على نهجهم، عسانا الله أن يبعثنا في زمرتهم.
+1:51|وما زلنا منذ أيام مع رابع أربعة، مع من كان إذا راه رسول الله قال: هذا خالي، فليرني امرؤ خاله، قال لكم خال مثل خالي. مع أول من أسال دمًا في سبيل الله، مع الأسد في براثنه، مع واحد من العشرة المبشرين بالجنة، مع واحد من الستة الشورى رضي الله عنهم، مع واحد من الخمسة الذين أسلموا على يد الصديق رضي الله عنه، مع واحد ممن شهد المشاهد كلها مع رسول الله ﷺ، لم يتخلف عن مشهد وغزوة شهدها رسول الله ﷺ، وكان واحدًا ممن ثبت في غزوة أحد، كان أحد الرماة الماهرين، واحد ممن جمع له رسول الله - أو إن شئت فقل: الوحيد الذي جمع الله له أبويه - فقال: ارمِ سعد فداك أبي وأمي. واحد ممن استجاب الله دعوتهم، فهو صاحبنا هذا مستجاب الدعوة، مسدد الرمية رضي الله عنه، سعد بن مالك بن وهيب من بني زهرة، سعد بن أبي وقاص.
+3:34|رأينا بالأمس قصة حدثت معه حين مرض في عام الوداع، ودخل عليه رسول الله يعوده، وهي سنة قد تكون غائبة في أيامنا: أن الواحد منا إذا مرض ما يسأل عليه حد. كان رسول الله يتفقد أصحابه: أين فلان؟ وأين فلان؟ فكان معه في العام العاشر في حجة الوداع، فمرض فعاده النبي ﷺ واستفتاه، فقال: إن لي مالًا كثيرًا ولا يرثوني إلا ابنة، وهي ابنته الكبرى عائشة، أفأتصدق بمالي؟ قال: لا. بثلثي مالي؟ قال: لا. بشطره؟ قال: لا. بالثلث؟ قال: الثلث، والثلث كثير، إنك إن تذر ورثتك أغنياء خير من أن تذرهم عالة يتكففون الناس. أخلف يا رسول الله؟ قال: لعلك أن تخلف فينتفع بك أقوام ويضر بك آخرون. اللهم امض لأصحابي هجرتهم. لكن البائس سعد بن خولة يرثي له أنه مات في مكة.
+4:51|قبل أن ننتقل إلى حال سعد بن أبي وقاص مع الخلفاء بعد موت النبي ﷺ، خطر لي أن نعيش مع قصة رواها البخاري ومسلم من قصة عائشة رضي الله عنها: كان عتبة بن أبي وقاص - أخو سعد - مات كافرًا، وكان قد فر من مكة إلى يثرب فارًّا بدم. فلما هاجر سعد بن أبي وقاص وعمير بن أبي وقاص، نزل على بيت أخيهما عتبة بن أبي وقاص بديار عمرو بن عوف بقباء.
+6:39|تقول أم المؤمنين عائشة: كان عتبة بن أبي وقاص قد عهد إلى أخيه سعد بن أبي وقاص أن وليدة بني زمعة - وليدة الأمة الجارية التي تباع وتشترى، زمعة هذا والد أم المؤمنين سودة بنت زمعة - كانت له أمة جارية، فقال: إن ابن وليدة زمعة مني، زنى بها عتبة فحملت. فأوصى أخاه سعدًا: إن ابن وليدة زمعة مني فاقبضه إليك. فلما دخل سعد مكة عام الفتح، ظل يتتبع وصية أخيه عتبة، فضل يبحث في مكة.
+9:57|فلما كان عام الفتح أخذه سعد فقال: ابن أخي، فقد كان عهد إليَّ فيه. فقام إليه عبد الرحمن بن زمعة، أخو سودة بنت زمعة، فقال: أخي، وابن وليدة أبي، ولد على فراشه. فتساوقا إلى رسول الله ﷺ، كل واحد منهما يجر الآخر.
+12:03|فقال سعد: يا رسول الله، ابن أخي، كان قد عهد إليَّ. وقال عبد الرحمن بن زمعة: أخي وابن وليدة أبي، ولد على فراشه. فقال رسول الله ﷺ: «هو لك يا ابن عبد زمعة»، ثم قال: «الولد للفراش وللعاهر الحجر».
+13:59|قاعدة: الولد على الفراش الذي ولد عليه ولو كان ابن زنا. الولد للفراش وللعاهر الحجر. الحجر تأتي على معنيين: الحسرة والندامة، أو الحجر الذي يقام به عليه الحد.
+14:27|ولسد الذرائع والشبهات: «واحتجبي منه يا سودة»، لما رأى من شدة شبهه بعتبة. فما رآها حتى لقي الله، احتجبت منه خالص.
+15:29|فكانت هذه من عادة الجاهلية التي أبطلها الإسلام. كانت عادة الجاهلية إلحاق النسب بالزنا، وليس إلحاقه بالفراش. وكانوا يستأجرون الإماء للزنا. فجاء الإسلام فأبطل هذا بإلحاق الولد للفراش الشرعي.
+18:14|إلا إذا تبرأ الزوج وعلم أن الولد ليس منه، فالسبيل هو الملاعنة، قال تعالى: ﴿وَالَّذِينَ يَرْمُونَ أَزْوَاجَهُمْ وَلَمْ يَكُن لَّهُمْ شُهَدَاءُ إِلَّا أَنفُسُهُمْ...﴾. فإن شهدت أربعًا وحلفت بالخامسة، أُلحق الولد بأمه، ونُسب إليها، ولا يُنسب إلى الأب، ولا تُرمى به أمه بزنا.
+22:49|هكذا كان سعد يشهد المشاهد كلها في عهد النبي ﷺ، وكان خلفه في الصلاة وإمامه بالجهاد. لما مات رسول الله ﷺ استُخلف أبو بكر رضي الله عنه، وكان سعد من جملة المقربين منه، إذ أنه أسلم على يديه.
+23:22|ولما خرج جيش أسامة من المدينة - وهو أول شيء فعله الصديق رضي الله عنه بإنفاذ بعث أسامة الذي كان قد جهزه النبي ﷺ للروم - طمعت الأعراب في المدينة. فجعل أبو بكر حراسًا على أنقابها، منهم علي بن أبي طالب، منهم الزبير بن العوام، منهم طلحة بن عبيد الله، منهم سعد بن أبي وقاص. فكانت وظيفتهم أن يؤمنوا مدينة رسول الله ﷺ.
+24:39|ثم خرج بعد ذلك سعد مع أبي بكر لقتال المرتدين الذين منعوا الزكاة، ثم كان له شأن عظيم في فتوح العراق.
+25:00|أرسل أبو بكر خالد بن الوليد من العراق إلى الشام. ولما مات أبو بكر استخلف عمر أبا عبيد الثقفي على أجناد العراق سنة 13 هجرية، وكانت فترته ليست بطويلة، حيث استشهد في معركة تعرف بالجسر. وبعد مقتل أبي عبيد الثقفي انتظم شمل الفرس وزادت قوتهم، ونقضوا عهدهم وأرادوا استئصال شأفة المسلمين، وأرادوا أن يغزوهم في المدينة. فغضب عمر رضي الله عنه وركب في أول شهر محرم سنة 14 هجرية، وكان عازمًا على غزوهم في العراق بنفسه، واستخلف على المدينة علي بن أبي طالب، ثم عقد مجلسًا للشورى لاستشارة أصحابه، فوافقوه جميعًا على خروجه.
+27:08|إلا عبد الرحمن بن عوف، وقف لسيدنا عمر وقال له: لست موافقًا أن تخرج لقتال الفرس، إذ أنهم لو لم يفعلوا ذلك لغزوه في المدينة. أخشى إن كُسرت - ويقصد بالكسر: القتل - أن تكون المصيبة فيك عظيمة، وأن يضعف المسلمون في سائر أقطار الأرض. إني أرى أن تبعث رجلًا وأن تبقى أنت في المدينة.
+28:45|فارتأى عمر والناس عند ذلك، واستصوبوا رأي عبد الرحمن بن عوف، قالوا: نعم الرأي. قال عمر: أيها الناس، أشيروا عليَّ، مين يطلع مكاني في الحرب دي؟ فقال عمر: وجدته، وجدته، وجدته. قيل: من هو؟ قال: الأسد، الأسد في براثنه، سعد بن أبي وقاص. الوحيد اللي يصلح للمهمة دي، سعد بن أبي وقاص، سعد بن مالك الزهري.
+30:09|فأرسل إلى سعد فأمره على العراق، وأوصاه وصية عظيمة: «يا سعد، لا يغرنك من الله أن قيل: إنك خال رسول الله. فالله ليس بينه وبين أحد من خلقه نسب. فإن الله لا يمحو السيئ بالسيئ، ولكن يمحو السيئ بطاعته. فالناس شريفهم ووضيعهم في ذات الله سواء، الله ربهم وهم عباده، يتفاضلون بالعافية، ويدركون ما عند الله بالطاعة. فانظر إلى الأمر الذي رأيت رسول الله ﷺ منذ بُعث إلى أن فارقنا، الزم أمر النبي الذي رأيته منذ أن أسلمت إلى أن فارقنا، فالزمه، فإنه أمر، هذه عظتي إياك، إياك أن تتركها، إياك إن تركتها ورغبت عنها حبط عملك وكنت من الخاسرين».
+32:15|ولما أراد فراقه قال: «إنك ستقدم على أمر شديد، فالصبر الصبر على ما أصابك. واجمع لك خشية الله، واعلم أن خشية الله تجمع في أمرين: في طاعته واجتناب معصيته. وإنما طاعة من أطاعه ببغض الدنيا وحب الآخرة، وإنما عصيان من عصاه بحب الدنيا وبغض الآخرة. وللقلوب حقائق ينشئها الله إنشاء، منها للسر ومنها للعلنية. فأما العلانية أن يكون حامله في الحق سواء، وأما السر فيعرف بظهور الحكمة على قلبه ولسانه، ومحبة الصالحين. فلا تزهد في التحبب، فإن النبيين قد سألوا محبتهم، وإن الله إذا أحب عبدًا حببه، وإذا أبغض عبدًا بغضه، فاعتبر منزلتك عند الله بمنزلتك عند الناس».
+34:15|فخرج سعد إلى العراق في ستة آلاف مقاتل أميرًا بها. وكتب عمر إلى جرير بن عبد الله البجلي وإلى ابن حارثة الشيباني أن يكونا تبعًا لسعد، وأن يسمعا له ويطيعا. فلما وصل سعد إلى مكان الحرب للجيوش، لم يبقَ أمير في العراق إلا كان تحت أمره سعد. وأمده عمر بأمداد أخرى حتى وصل الجيش إلى ثلاثين أو ستة وثلاثين ألفًا.
+36:03|واجتمع رأي الفرس على إرسال رستم على الجيش، فذهب رستم وعسكر، فجعل على المقدمة أربعمائة رجل يسمى الجالينوس، وعلى الميمنة الهرمزان، وعلى الميسرة مهران بن بهرام، وعلى الساقة البندران، وهم ثمانون ألفًا، وقيل كانوا مائة وعشرين ألفًا يتبعهم ثمانون، فالجملة أنهم كانوا مائتي ألف، ومعه ثلاثة وثلاثون فيلًا. أمام ستة وثلاثين ألفًا من المسلمين.
+37:03|ثم بعث سعد النعمان بن مقرن وفرات بن حيان وحنظلة بن الربيع رجالًا يدعون رستمًا قائدهم إلى الإسلام، فأبى.
+37:39|فبعث سعد سرية لتأتيه برجل من الفرس لمعرفة أخبارهم، فاخترق طليحة بن خويلد الأسدي جيش الفرس حتى أتى بواحد منهم، فأخبره أن رستم في مائة وعشرين ألفًا وخلفه مثلها.
+38:37|فلما تواجه الجيشان بعث رستم إلى سعد أن يبعث إليه برجل عاقل عالم بما يسأله عنه. فبعث إليه المغيرة بن شعبة، ثم ربعي بن عامر، ثم حذيفة بن محصن. وسأل رستم ربعيًّا: ما الذي جاء بكم؟ قال: «جئنا لنخرج العباد من عبادة العباد إلى عبادة رب العباد».
+39:32|ولما تقابل الجمعان نكمل معركة القادسية، لأن سعدًا أصيب قبل بدء الحرب، فاتخذوا له عريشًا، وكان يدير المعركة منه، قائد العمليات سعد بن أبي وقاص، في ستة وثلاثين ألفًا في مقابل مائتي ألف. كم من فئة قليلة غلبت فئة كثيرة بإذن الله.
+40:11|خاتمة بدعاء جامع: اللهم أصلح لنا الدين والدنيا والآخرة، واصرف عنا الفتن والبلاء والوباء والغلاء، واشف مرضانا، وارحم موتانا، واكتب لنا حجة مبرورة قبل الموت وتوبة نصوحًا قبل الموت وشهادة صادقة عند الموت ولذة النظر إلى وجهك الكريم.
+`;
+
+const RAW_P4 = `
+0:00|الحمد لله رب العالمين، نحمده ونستعينه ونستهديه ونستغفره، ونعوذ بالله تعالى من شرور أنفسنا وسيئات أعمالنا، من يهده الله فلا مضل له ومن يضلل فلا هادي له. وأشهد أن لا إله إلا الله وحده لا شريك له، وأشهد أن سيدنا ونبينا محمدًا عبده ورسوله.
+0:24|اللهم صل وسلم وبارك على عبدك ورسولك خير خلقك سيدنا محمد، وعلى آله وأصحابه وأزواجه وأحبابه وأتباعه، وعلى كل من اهتدى بهديه واستن بسنته وسار على نهجه إلى يوم الدين.
+0:39|وبعد، فطيبتم أحبتي وطيب الله ممشاكم ومسعاكم، وبوأكم جميعًا من الفردوس الأعلى منزلة. أسأل الله ألا يحرمني وإياكم فضل وأجر ونعمة صلاة الفجر والجمعة والجماعات ومجالس الذكر أبدًا ما أحيانا وما أبقانا.
+1:00|إنه ولي ذلك مولاه والقادر عليه. الأئمة الأعلام على مر الدهور والأعوام، سلسلة سيرية من السيرة، سلسلة مباركة نتحدث فيها عن الصحب الكرام رضي الله عنهم وأرضاهم، وعلى من سار على دربهم وعرف هديهم واقتفى أثرهم.
+1:28|فقد سبقت من الله الحسنى لهم، وبالرضا والرضوان عمهم، فاللهم ارض عنهم وارض عنا معهم رضاءً لا سخط بعده.
+1:36|كنا منذ أيام وما زلنا نعيش مع رابع أربعة، نعيش مع أول من أسال دمًا في الإسلام، نعيش مع خال رسول الله الذي إذا راه قال: «هذا خالي، فليرني امرؤ خاله، هل لكم خال مثل خالي؟» مع مستجاب الدعوة مسدد الرمية، مع سعد بن مالك بن وهيب من بني زهرة، من أخوال النبي ﷺ، مع سعد بن أبي وقاص رضي الله عنه.
+2:21|رأينا سعدًا كيف أسلم، ورأيناه في غزوة بدر فارسًا مغوارًا، ورأيناه في غزوة أحد رمى ما يزيد على الألف رميه، حتى أن الرجل كان إذا مر بجعبه السهام يقول النبي ﷺ: «انثرها لسعد، ارمِ فداك أبي وأمي».
+3:04|رأيناه مع رسول الله ﷺ في المشاهد كلها، ومات رسول الله ﷺ وهو عنه راضٍ. وسمعنا قصته مع أخيه عتبة بن أبي وقاص مع وليدة بن زمعة، وسمعنا قصته في حجة الوداع حين شعر باقتراب أجله، وقال للنبي ﷺ: إن لي مالًا كثيرًا أفأتصدق به ولا يرثني إلا ابنة؟ وتعجبنا أنه عاش بعدها 45 عامًا، وأنجب بعدها من الأولاد والبنات ما يزيد على الستة والثلاثين ولدًا وبنتًا.
+4:03|لما حدثت الفتنة التي كانت بين علي ومعاوية رضي الله عنهما، اعتزل سعد بن أبي وقاص، وهذا أسلم.
+4:26|تخيل معي أخي الحبيب لو كنا ثلاثة، حيث انقسمت الصحابة لثلاثة: فريق كان مع علي، وفريق كان مع معاوية - ليس من أجل معاوية، إنما من أجل الثأر لدم عثمان - وفريق ثالث معتزل. هكذا كان الصحابة.
+4:56|لو أننا كنا نسير بطريق منير مضيء واسع واضح، وفجأة غابت الشمس وانطفأت الأنوار، ولم نبصر أيدينا، ماذا تفعل أنت وماذا أفعل أنا؟ ينقسم الناس في هذه الحالة لثلاثة أقسام: لفريق يأخذ يمينًا، ولفريق يأخذ يسارًا، ولفريق يقف.
+5:40|أيهم أسلم؟ الواقف. من أخذ يمينه أو يساره قد يخطئ في الطريق في الظلمة ويعود إلى نقطة الصفر من حيث بدأ، فيجد الواقف ما زال واقفًا، وتعب في الطريق وضل الطريق. فالوقف في الفتن أسلم.
+6:10|الظلمة فتنة. الكتاب والسنة نور كنا نسير فيها ونهتدي ونبصر أيدينا ونعرف طريقنا، وفجأة غابت الشمس وانطفأت الأنوار، وأخذ كل واحد منا سبيله وطريقه. فقد يكون الرجل في الظلمة قد أخطأ في الطريق.
+6:41|أسلم الثلاثة من وقف، إذ أنه لا يدري أين يمشي. أسلمهم من اعتزل، كسعد بن أبي وقاص، كعبد الله بن عمر، كأسامة بن زيد، كمحمد بن مسلمة، كنفيع بن الحارث أبي بكرة، كسلمة بن الأكوع، صحابة كثر وقفوا واعتزلوا الفتنة.
+7:25|وقال سعد بن أبي وقاص: «ائتني بسيف...» لما أراد معاوية رضي الله عنه أن يستميله، قال: «ائتني بسيف لو ضربت به المؤمن أمتنع، ولو ضربت به الكافر قطع»، قال: «لا أجد»، قال: «ولساني لا يفعل ذلك»، طالما احنا في فتنة فالاعتزال فيها واجب.
+7:59|في أيامنا هذه الفتن مختلطة، الناجي من حمى سمعه وبصره وفؤاده. احمِ سمعي وبصري يا رسول الله.
+8:15|كلمة أم المؤمنين زينب بنت جحش رضي الله عنها في الفتنة التي حدثت أثناء حادثة الإفك مع أم المؤمنين عائشة رضي الله عنها: انقسم الناس إلى خائض ومادح وساكت. زينب رضي الله عنها قالت: «والله يا رسول الله ما علمت عنها إلا خيرًا». حمنة بنت جحش أخذت تدافع عن أختها، وحمنة ومسطح بن أثاثة، وكبيرهم عبد الله بن أبي. وهكذا وقع بعضهم، وحسان بن ثابت. هؤلاء الأربعة جلد رسول الله ﷺ منهم ثلاثة، وترك عبد الله بن أبي لعذاب الله في الآخرة، لقوله تعالى: ﴿وَالَّذِي تَوَلَّى كِبْرَهُ مِنْهُمْ لَهُ عَذَابٌ عَظِيمٌ﴾. فلو أقيم الحد عليه في الدنيا، فالحدود كفارة.
+9:22|أقصد أن نستفيد من السيرة: إن استطعت أن تحفظ عينك ولسانك، إن استطعت أن تحفظ سمعك وبصرك وقلبك فأنت ناجٍ بفضل الله تعالى. إياك أن تكون خائضًا مع الخائضين، فتلك صفة من صفات أهل سقر. ﴿مَا سَلَكَكُمْ فِي سَقَرَ * قَالُوا لَمْ نَكُ مِنَ الْمُصَلِّينَ * وَلَمْ نَكُ نُطْعِمُ الْمِسْكِينَ * وَكُنَّا نَخُوضُ مَعَ الْخَائِضِينَ﴾. ومع كل أكل نأكل، وعلى كل مائدة نأكل، ومع كل ضارب نضرب في المعصية، وكنا نخوض مع الخائضين. نسأل الله العفو والعافية والسلامة.
+10:19|فسعد بن أبي وقاص رضي الله عنه كان ممن اعتزل الفتنة، وأراد معاوية رضي الله عنه أن يستميله فأبى، أبى أن يقع في علي رضي الله عنه، فاعتزل الفتنة، ولم يشهد الجمل ولا صفين ولا أمر التحكيم الذي كان بين أبي موسى من جهة علي وعمرو بن العاص من جهة معاوية حتى تجتمع الأمة على إمام واحد.
+11:03|طمع معاوية بن أبي سفيان في سعد بن أبي وقاص، وفي عبد الله بن عمر، وفي محمد بن مسلمة، وكتب إليهم يدعوهم إلى عونه، يدعوهم إلى الطلب بدم عثمان، ويقول: ألا تثارون لدم عثمان؟ فأجابه كل واحد منهم برد على حسب حاله.
+11:41|أمر معاوية سعدًا رضي الله عنهما أن يسب أبا تراب، وهي أحب الكنى لقلب سيدنا علي. فذكره بثلاثة أشياء، قال له: أما أنا أذكر لعلي ثلاثة قالهن له رسول الله ﷺ، لأن تكون لي واحدة منهن أحب إلي من حمر النعم. أنا أسبه؟! لو كانت لي واحدة ممن وصفه بها رسول الله ﷺ كانت أحب إلي من الدنيا وما فيها.
+12:33|سمعت رسول الله ﷺ في بعض مغازيه - قلت: في تبوك - قال له: يا علي... حيث أمره ألا يخرج معهم، وأن يبقى لحماية المدينة، فخلفه رسول الله ﷺ على المدينة. ففرح علي، قال: يا رسول الله، أتخلفني مع النساء والصبيان والضعفاء؟ قال له رسول الله ﷺ: «أما ترضى أن تكون مني بمنزلة هارون من موسى؟» - أزاي حين قال لأخيه: ﴿اخْلُفْنِي فِي قَوْمِي وَأَصْلِحْ﴾ - «فأنت مني بمنزلة هارون من موسى، إلا أنه لا نبي بعدي». فهارون كان نبيًّا، وأنت لن تكون نبيًّا، فلا نبي بعده. هذه واحدة ذكر سعد بن أبي وقاص بها معاوية بن أبي سفيان، قال: كيف أسب هذا وأنا أتمنى واحدة منهن؟
+13:52|الثانية: يوم قال له في خيبر: «لأعطين الراية غدًا رجلًا يحبه الله ورسوله، ويحبه الله ورسوله، يفتح الله على يديه». فأعطى الراية عليًّا، فأتى به وكان أرمد، فبصق في عينه فبرئت.
+14:21|والثالثة: لما نزلت آية المباهلة: ﴿فَقُلْ تَعَالَوْا نَدْعُ أَبْنَاءَنَا وَأَبْنَاءَكُمْ وَنِسَاءَنَا وَنِسَاءَكُمْ وَأَنفُسَنَا وَأَنفُسَكُمْ ثُمَّ نَبْتَهِلْ فَنَجْعَل لَّعْنَتَ اللَّهِ عَلَى الْكَاذِبِينَ﴾. قال سعد بن أبي وقاص: دعا رسول الله ﷺ عليًّا وفاطمة وحسنًا وحسينًا وقال: «اللهم هؤلاء أهلي».
+15:02|لما سمع سعد بن أبي وقاص أن رجلًا كان يقع في طلحة والزبير وعلي يسبهم، جعل سعد ينهاه ويقول: «لا تفعل، لا تقع في إخوانك». وهذه واحدة من واجبات المسلم على المسلم: رد غيبة أخيك المسلم. لا تكن عونًا للشيطان، فإن ذكر أخوك في مجلس أو في محفل بسوء فرد الغيبة واجبة. «من ذب عن عرض أخيه وكل الله به ملكًا يوم القيامة يحمي لحمه من نار جهنم». ومن قال في مسلم شيئًا يريد به شينه، حبسه الله على قنطرة بين الجنة والنار حتى يخرج مما قال، وليس بخارج. هتتحبس في القيامة آلاف السنين، دي قنطرة ده بسبب إيه؟ كلمة قلتها في مسلم تريد بها شيء، هتستفيد إيه؟ طيب أمسك عليك لسانك.
+16:39|فسمع طلحة الشاهد... سمع سعد بن أبي وقاص رجلًا يسب عليًّا وطلحة والزبير، قال: «لا تفعل ذلك بإخواني»، قال: «صه، اسكت». فقام سعد وتوضأ وصلى ركعتين، ودعا عليه. وهو رجل مستجاب الدعوة. فجعل جمل يشق الناس، وأخذ الساب بين رجليه وسحقه. فيقول سعيد بن المسيب: فإنا رأيت الناس يتبعون سعدًا ويقولون: هنيئًا لك يا أبا إسحاق، استجيبت دعوتك.
+17:43|آخر المهاجرين موتًا بالمدينة سعد بن أبي وقاص في العام الخامس والخمسين. آخر الصحابة موتًا في مكة: أبو الطفيل عامر بن واثلة، مات سنة 102. آخر الصحابة موتًا بالبصرة: أنس بن مالك رضي الله عنه. فآخر الصحابة من المهاجرين موتًا بالمدينة سعد بن أبي وقاص رضي الله عنه.
+18:39|لما حضرته الوفاة فعل شيئًا عجيبًا، قال لهم: «أخرجوا...» أخرجوا شيئًا كان قد ادخره، فجاؤوا بجبة خَلِقة، بجبة بأفطان، سروال أيًّا كان، فجاؤوا بجبة خَلِقة بالية، لها صوف. فقال: «كفنوني فيها». ده احنا هنكفنك في ثوب أحسن؟ قال: «لا، هذه الجبة لقيت بها المشركين في غزوة بدر، وادخرتها لمثل يوم هذا، أُكفَّن فيه. فإن سألتني الملائكة قلت: أنا واحد ممن رضي الله عنهم في غزوة بدر». أنا مش أي حد، البدلة بتاعتي أهي، أنا واحد ممن رضي الله عنهم في غزوة بدر.
+19:50|شوف كانوا فكرهم إيه وشغلهم إيه؟ بيعد كفن مخصوص، فبيجيب من غزوة بدر. هو مات سنة 55، وبدر دي في سنة اثنين، 53 سنة. مين فيكم شايل هدمة من 53 سنة؟ مين فيكم شايل كفن من 53 سنة؟ حاجة يعني حتة من غزوة بدر نوى.
+20:32|الجبة اللباس الثوب اللي أنا كنت بلبسه في غزوة بدر، أكفن فيه. فكانت وصيته أن أكفن في ثوبي الذي لقيت المشركين فيه في غزوة بدر. الملائكة لما تجي تسألني: من ربك؟ ومن دينك؟ ومن كنت تتبعه؟ أقول: كنت أقاتل معه، وأنا واحد ممن رضي الله عنه في غزوة بدر. اهو بصوا الثوب بتاعي بدمه، بدماء المشركين في غزوة بدر.
+21:09|هل من الممكن أن أدخر كفني من ملابس حجي؟ طبعًا، أطهر بقعة، ثوب لم يرَ معصية، ثوب الإحرام. يجوز للرجل أن يوصي أن يكفن فيه، لأنه ثوب لم يرَ معصية. ثوب طاف بالبيت، ثوب سعى بين الصفا والمروة، ثوب وقف في عرفة - اللهم بلغنا عرفة - ثوب نام على أرض مزدلفة، ثوب رمى جمار الشيطان. ثوب لم يشهد معصية. فنعم ما فعل سعد بن أبي وقاص حين ادخر ثوب غزوة بدر.
+22:21|خد بالك، انت كنت مثلًا من سنتين في العمرة، ده بقى 53 سنة. هو مات سنة 55، وغزوة بدر كانت في شهر رمضان من السنة الثانية، فظل محتفظًا بثوبه الذي لقي المشركين فيه رضي الله عنه ليكفن فيه.
+22:52|فقال: «أخرجوا هذه الجبة»، وكانت بالية. انت متخيل لما ثوب تشيله 53 سنة هتاكله العثة. والناس بتاعة زمان عارفة يعني إيه العت. هو كان فعلًا بايش حتى أنه قال: جبة خَلِقة بالية قديمة، بس فيها من رائحة غزوة بدر، فيها من رائحة الكعبة والإحرام، فيها من رائحة عرفة.
+23:45|فدعا بجبة خَلِقة وقال: «كفنوني فيها، فقد لقيت المشركين فيها يوم بدر، وكنت أخبئها ليوم أنا مخبيها ليوم هذا». ومات رضي الله عنه في بيته بالعقيق، والعقيق على بعد أميال من المدينة، وأوصى أن يدفن بالبقيع. فحملوه على أعناق الرجال، وصلى عليه مروان بن الحكم أمير المدينة من قبل معاوية.
+24:53|أرسلت زوجات النبي ﷺ: «إنا لا نستطيع أن نخرج لكي نصلي عليه، فهل لا مررتم بجنازته في مسجد رسول الله ﷺ؟» ففعلوا، فدخلوا به فقاموا على رؤوسهن، فصلين عليه وهن في الحجرات، صلين على سعد بن أبي وقاص، وخرج من باب الجنائز، وخرجوا به.
+26:05|فبلغهن أن الناس قد عابوا عليهن، قالوا: كيف زوجات النبي يصلين على ميت في المسجد؟ ما نصلي على ميت في مسجد، نصلي عليه في المصلى، والمصلى المكان الخالي الخلاء الذي يصلى فيه العيد.
+26:47|فبلغهن أن الناس عابوا عليهن في ذلك، وقالوا: ما كانت الجنائز يدخل بها المسجد في كل وقت. والثاني لازم تلاقي فلاسفة ومفتيين، لازم شبه الضال المضل: «ده يا دكتور، هل المرأة تغير المحجبة عاصيها؟» قالوا: «وليه يا فندم عصية؟» «على حسب نيتي يا فندم». «والله على حسب نيتها، نيتها وحشت يعني؟» «على حسب نيتها يا فندم». «والله يا فندم، عايز من حاجة تاني يا فندم؟»
+27:48|لا، شوف ربنا سبحانه وتعالى بيقول إيه: ﴿لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ﴾، ده نص قاطع، نصوص وحيية قاطعة. فواحد بيسأله بيقول له: هل في نص بيقول إن الذكر ياخد ضعف بتاع البنت؟ قال: «لا طبعًا، ما فيش». «وده يا فندم حكم الحاكم يحكمه في المسألة». «الحاكم بيعمل استفتاء شعبي يا فندم، ولو الشعب وافق فهذا من باب السماح، وهذا ما يأذن به الإسلام». نعمل استفتاء شعبي على ﴿لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ﴾؟
+28:45|فخرج عليهن بعض الناس، فقالت: «ما كانت الجنائز يدخل بها في المسجد». فبلغ ذلك عائشة رضي الله عنها فقالت: «ما أسرع الناس أن يعيبوا وأن يتكلموا فيما لا علم لهم به! عابوا علينا أن يمر بجنازة في المسجد».
+29:32|طيب ما الحجة يا أم المؤمنين؟ قالت: «وما صلى رسول الله ﷺ على سهيل بن البيضاء إلا في المسجد، وأنا خلفه». ده أنا كنت حاضرة، كنت في البيت في بيتي، وصلى النبي على سهيل بن البيضاء في المسجد. قالت: «والله ما صلى رسول الله ﷺ على سهيل بن البيضاء إلا في جوف المسجد، وأنا خلفه، وأنا في بيته».
+30:14|تركت سعد يوم مات 250,000 درهم. سعد بن أبي وقاص رضي الله عنه له ذرية وأولاد.
+30:32|قبل ما أقول، أتي ببعض المناقب التي لم أكن قد ذكرتها: حديث عبد الرحمن بن عوف: أبو بكر في الجنة، وعمر في الجنة، وعثمان في الجنة، وعلي في الجنة، وطلحة في الجنة، والزبير في الجنة، وعبد الرحمن بن عوف في الجنة، وسعد بن أبي وقاص في الجنة، وسعيد بن زيد في الجنة، وأبو عبيدة بن الجراح في الجنة. اللهم احشرنا معهم آمين، مع رسول الله ﷺ، رضي الله عنهم وأرضاهم جميعًا.
+31:30|عن علي رضي الله عنه فيما رواه أحمد وفي الترمذي قال: «ما سمعت رسول الله ﷺ يفدي أحدًا أبويه غير سعد، يوم أحد سمعته يقول: ارمِ فداك أبي وأمي».
+32:00|سهر رسول الله ﷺ - الحديث عن أمنا عائشة في الترمذي وقال حديث حسن -: سهر رسول الله ﷺ مقدمه المدينة ليلًا فقال: «ليت رجلًا صالحًا من أصحابي يحرسني الليلة». فقال: فبينما نحن كذلك سمعنا خشخشة سلاح، فقال: «من هذا؟» قال: سعد بن أبي وقاص. وقال له رسول الله ﷺ: «ما جاء بك؟» قال: «وقع في نفسي خوف عليك يا رسول الله، فجئت أحرسك». فدعا له رسول الله ﷺ ثم نام.
+32:58|روى أبو داود في السنن وأحمد في مسنده من حديث جابر بن عبد الله: أقبل سعد فقال النبي ﷺ: «هذا خالي، فليرني امرؤ خاله». قال رسول الله ﷺ من حديث سعد: «اللهم أجب دعوته وسدد رميته».
+33:28|عن عائشة بنت سعد عن أبيها سعد قالت: لما مرض أبي دخل رسول الله ﷺ عليه فوضع يده على جبهته، ثم مسح وجهي وصدري، وقال: «اللهم اشفِ سعدًا». قال سعد: «فما زلت أجد برد يده على صدري إلى ساعتي هذه».
+34:46|فيكم يا سيدي سعد بن أبي وقاص تزوج 11 امرأة، لكن لم يكن في ذمته إلا أربعة، أنجب 36 ولدًا وبنتًا.
+35:09|فزوجته الأولى ابنة شهاب بن عبد الله، أنجب منها إسحاق الأكبر وأم الحكم. ماوية بنت قيس، أنجب منها عمر الأكبر ومحمد وحفصة وأم القاسم وأم كلثوم.
+36:02|أنا ممكن أجيبها من سكة ثانية رواها ابن سعد في الطبقات، أنه جاء بها بأبنائه. أبناؤه الذكور: إسحاق الأكبر، أمه ابنة شهاب بن عبد الله بن الحارث بن زهرة. أكبر أولاد سعد من الذكور إسحاق الأكبر، وبه يكنى، حتى قال له عمر: «لك الظن بك يا أبا إسحاق» حين اتهمه رجل في السرية: «لا يسير بالسرية، ولا يعدل في القضية، ولا يقسم بالسوية، ولا يحسن الصلاة». قال: «أصلي بهم صلاة رسول الله ﷺ: أطيل في الأوليين وأقصر في الركعتين الأخيرتين». قال: «ذاك الظن بك يا أبا إسحاق».
+37:30|عمر الأكبر أمه ماوية بنت قيس بن معد يكرب، استعمله عبيد الله بن زياد على الري في العراق وهمذان، فلما قدم الحسين بن علي العراق أمره عبيد الله بن زياد أن يسير إليه، وبعث معه 4000. محمد بن سعد، أمه ماوية بنت قيس. عامر بن سعد، أمه أم عامر بنت عمرو، تابعي. إسحاق الأصغر، إسماعيل، إبراهيم، موسى، عبد الله بن سعد، مصعب بن سعد، عبد الله الأصغر، بجير واسمه عبد الله، عمير بن سعد الأكبر، عمير الأصغر، عمر الأصغر، عمران، صالح بن سعد، عثمان. 18 ولدًا.
+38:23|أبناؤه في الإناث: أم الحكم الكبرى، حفصة، أم القاسم، أم كلثوم، أم عمران، أم الحكم الصغرى، أم عمرو، هند، أم الزبير، وأم موسى، وحميدة، وحمنة، وأم عمرو، وأم أيوب، وأم إسحاق، ورمله، وعمرة، وعائشة، وهي أكبر بناته، توفيت في العام 117، وكانت من رواة الأحاديث.
+39:04|كانت عائشة في سنة 10 هجرية هي التي قال عنها: «إن لي مالًا ولا يرثوني إلا ابنة عائشة». هذه توفيت سنة 117.
+39:13|أختم بأحاديث سعد بن أبي وقاص رضي الله عنه. سعد بن أبي وقاص له 15 حديثًا في الصحيحين، وانفرد البخاري بخمسة، ومجموع أحاديثه 270 حديثًا. لكن في الصحيحين 15 حديثًا، انفرد البخاري بخمسة، ومسلم بعشرة. له في مسند أحمد 77 حديثًا.
+40:01|روى عن سعد: عبد الله بن عمر، وعائشة رضي الله عنها، وعبد الله بن عباس، والسائب، وجابر بن عبد الله، والمسور بن مخرمة. وروى عنه جمع غفير من صحابة البشير النذير.
+40:19|فرضي الله عن سعد، ورفع درجته في المهديين، وألحقنا بهم في أعلى عليين. أسأل الله أن يجعلنا وإياكم من أهل الثبات والاستقامة، وأن يقلبنا في الفتن.
+40:34|يا مقلب القلوب، ثبت قلوبنا على دينك، اللهم يا مقلب القلوب ثبت قلوبنا على دينك، اللهم يا مصرف القلوب صرف قلوبنا على طاعتك ومحبتك. اللهم إن أردت بالقوم فتنة فاقبضنا إليك غير فاتنين ولا مفتونين، ولا خزايا ولا نادمين.
+40:55|اللهم أصلح لنا ديننا الذي هو عصمة أمرنا، ودنيانا التي فيها معاشنا، وآخرتنا التي إليها معادنا، واجعل الحياة زيادة لنا في كل خير، واجعل الموت راحة لنا من كل شر، وأجرنا من خزي الدنيا وعذاب الآخرة.
+41:12|اللهم اصرف عنا السوء وأهل السوء بما شئت وكيف شئت، اللهم احفظ علينا ديننا، واحفظ علينا أمننا، واحفظ علينا بلادنا، واحفظنا من بين أيدينا ومن خلفنا وعن أيماننا وعن شمائلنا، ونعوذ بعظمتك أن نغتال من تحتنا.
+41:33|اللهم أصلح أولادنا، وأصلح نساءنا، واستر بناتنا، واشفِ مرضانا، وارحم موتانا، وحقق في طاعتك رجاءنا، ولا تخيب فيك رجاءنا. اللهم اغفر لحاضرنا وغائبنا، وذكرنا وأنثانا، وحينا وميتنا، وصغيرنا وكبيرنا، مغفرة لن نشقى بعدها أبدًا.
+41:58|اللهم صل وسلم وبارك على سيدنا محمد وعلى آله وصحبه أجمعين، والحمد لله رب العالمين.
+`;
+
+function parseTranscript(raw){
+  return raw.trim().split('\n').map(line => {
+    const p = line.indexOf('|');
+    if(p === -1) return null;
+    const parts = line.slice(0, p).trim().split(':').map(Number);
+    if(parts.length < 2 || isNaN(parts[0]) || isNaN(parts[1])) return null;
+    return { t: parts[0]*60 + parts[1], text: line.slice(p+1).trim() };
+  }).filter(Boolean);
+}
+
+/* ================== كشف نوع الفيديو ================== */
+function isYouTube(u){ return /(?:youtube\.com|youtu\.be)/i.test(u || ''); }
+function getYouTubeId(u){
+  const m = (u || '').match(/(?:youtube\.com\/(?:watch\?(?:[^#]*&)?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+  return m ? m[1] : '';
+}
+
+/* ================== بيانات اللقاءات ================== */
+const LECTURES = [
+  {
+    id: 'saad-ibn-abi-waqqas',
+    title: 'سعد بن أبي وقاص — من السابقين الأولين وأدوات الدعوة',
+    icon: 'bi-person-badge-fill',
+    parts: [
+      {
+        id: 'part-1',
+        title: 'اللقاء الأول — سعد بن أبي وقاص وأدوات الدعوة',
+        video: 'https://www.youtube.com/watch?v=EO6tcMslVN0',
+        summary: [
+          'التعريف بسعد بن أبي وقاص رضي الله عنه: سعد بن مالك بن وهيب بن عبد مناف بن زهرة، أحد العشرة المبشرين بالجنة، ومن السابقين الأولين إلى الإسلام.',
+          'وُلد في العام الثاني قبل الهجرة باتفاق، وتوفي في العام الخمسين من الهجرة، وهو من بني زهرة قبيلة أم النبي ﷺ، فهو من أخوال النبي ﷺ.',
+          'أول من رمى سهمًا في سبيل الله، وقال له النبي ﷺ: «ارمِ فداك أبي وأمي»، ودعا له: «اللهم أجب دعوته وسدد رميته» فكان مستجاب الدعوة.',
+          'أحد الستة أصحاب الشورى الذين جعل عمر رضي الله عنه الخلافة فيهم.',
+          'إخوته: عامر بن أبي وقاص (من السابقين المهاجرين)، وعتبة بن أبي وقاص (الذي كسر رباعية النبي ﷺ في أحد)، وعمير بن أبي وقاص (أصغر إخوته، استُشهد يوم بدر وله ست عشرة سنة).',
+          'كان رجلًا قصيرًا غليظًا، شثن الأصابع، جعد الشعر، أشعر الجسد، آدم، أقنى، طويل السواد.',
+          'أسلم على يد أبي بكر الصديق رضي الله عنه، وكان سابع سبعة في الإسلام، وقال: «ما أسلم أحد إلا في اليوم الذي أسلمت فيه، ولقد مكثت سبعة أيام لم يسلم أحد، وإني لثُلث الإسلام».',
+          'رأى في المنام قبل إسلامه كأنه في ظلمة، فأضاء له قمر فاتبعه، ورأى زيد بن حارثة وعليًّا وأبا بكر قد سبقوه إلى القمر، ففسّر ﷺ ذلك بأنهم أول من سبق إلى الإسلام.',
+          'الصحابي الذي سبق سعدًا إلى الإسلام ثلاثة: أبو بكر، وعلي، وزيد بن حارثة رضي الله عنهم.',
+          'أدوات أبي بكر الصديق في الدعوة: الصدق، والخلق الحسن، والمال كوسيلة لا غاية، قال تعالى: ﴿وَسَيُجَنَّبُهَا الْأَتْقَى * الَّذِي يُؤْتِي مَالَهُ يَتَزَكَّى﴾.',
+          'الدعوة إلى الله ليست محصورة على الخطباء وأهل الفقه، بل هي في كل مكان: في العيادة، والمصنع، والمواصلات، ومع الجيران، وفي كل موقف من مواقف الحياة.',
+          'الناس تتأثر بالمواقف أكثر من الخطب والمواعظ: «فعل رجل في ألف رجل أشد من قول ألف رجل في رجل».',
+          'حديث: «من دعا إلى هدى كان له من الأجر مثل أجور من تبعه، لا ينقص ذلك من أجورهم شيئًا» — رواه مسلم.',
+          'حديث: «لأن يهدي الله بك رجلًا واحدًا خير لك من حُمر النعم» — رواه البخاري ومسلم، وفي رواية: «خير لك من الدنيا وما فيها»، وفي رواية: «خير لك مما طلعت عليه الشمس».',
+          'قصة المصارع المسلم في أولمبياد طوكيو 1984 الذي رفض استغلال إصابة خصمه في المباراة النهائية، فأسلمت على يديه فتاة يابانية وتزوجها، وبقي هذا الموقف أثرًا في ألف ياباني.',
+          'قصة الشيخ الذي حمل شنطة رجل في الحج، فلم ينسَ الرجل الموقف بعد سنوات رغم نسيانه لخطبة عرفة — دليل على أن المواقف لا تُنسى.',
+          'أول من أسلم على الإطلاق: خديجة رضي الله عنها، ومن الرجال: أبو بكر، ومن الصبيان: علي، ومن الموالي: زيد بن حارثة رضي الله عنهم.',
+          'الثمانية الأوائل في الإسلام: أبو بكر، وزيد بن حارثة، وعلي بن أبي طالب، وسعد بن أبي وقاص، وعبد الرحمن بن عوف، وطلحة بن عبيد الله، والزبير بن العوام، وعبد الرحمن بن عوف (وقيل: عثمان بن حبان).',
+          'قصة خديجة رضي الله عنها حين جاءها النبي ﷺ يقول «زملوني زملوني»، فلم تسأله «مالك؟» بل بادرته بالتطمين: «والله لا يخزيك الله أبدًا، إنك لتصل الرحم، وتحمل الكل، وتكسب المعدوم، وتقري الضيف، وتعين على نوائب الحق» — فكان اختيار الله لها وتجهيزه لها لهذا الموقف.'
+        ],
+        transcript: parseTranscript(RAW_P1)
+      },
+      {
+        id: 'part-2',
+        title: 'اللقاء الثاني — بر الوالدين وطول العمر وعلامات النبوة',
+        video: 'https://www.youtube.com/watch?v=3d8xvnlNOMM',
+        summary: [
+          'بر سعد بن أبي وقاص بأمه: كانت أمه شديدة الحب له، فلما أسلم هددته أن تمتنع عن الطعام والشراب حتى الموت ليرجع عن دينه، فمكثت يومًا وليلة، فقال لها: «والله لو كان لك ألف نفس فخرجت نفسًا نفسًا ما تركت ديني»، فنزل قوله تعالى: ﴿وَإِن جَاهَدَاكَ عَلَى أَن تُشْرِكَ بِي مَا لَيْسَ لَكَ بِهِ عِلْمٌ فَلَا تُطِعْهُمَا وَصَاحِبْهُمَا فِي الدُّنْيَا مَعْرُوفًا﴾.',
+          'أول من أراق دمًا في سبيل الله: كان المسلمون في مكة يستخفون بالصلاة في الشعاب، فبينما سعد في نفر من المسلمين في شعب من شعاب مكة، إذ ظهر عليهم نفر من قريش فناكروهم وعابوا دينهم، فاقتتلوا، فضرب سعد رجلًا بلحي جمل فشجه، فكان أول من أسال دمًا في الإسلام.',
+          'هجرته إلى المدينة: هاجر سعد قبل قدوم النبي ﷺ، وقد ذكر البراء بن عازب أن أول من قدم عليهم مصعب بن عمير، ثم عبد الله بن أم مكتوم، ثم بلال وسعد وعمار بن ياسر، ثم عمر بن الخطاب في عشرين من أصحابه، وكان عمر أول من هاجر جهرًا.',
+          'هاجر سعد مع أخيه الأصغر عمير بن أبي وقاص، ونزل في منزل أخيهما عتبة بن أبي وقاص في قباء، وكان عتبة مشركًا قد فر من دم أصابه في مكة.',
+          'شهد سعد بن أبي وقاص بدرًا وثبت فيها حين ولى الناس، وشهد الخندق وبايع في الحديبية، وشهد خيبر وفتح مكة، وكان معه إحدى رايات المهاجرين الثلاث في فتح مكة.',
+          'كان من الرماة المهرة، وكان أحد الفرسان الذين يحرسون النبي ﷺ في مغازيه.',
+          'سرية سعد بن أبي وقاص في ذي القعدة من السنة الأولى: بعثه النبي ﷺ في عشرين رجلًا من المهاجرين يعترض عيرًا لقريش، وعقد له لواء أبيض، ولكن العير مرت قبل أن يدركوها.',
+          'في غزوة بدر: أرسله النبي ﷺ مع علي والزبير ليتحسسا أخبار جيش قريش، فوجدوا غلامين يستقيان من ماء بدر، فأتوا بهما إلى النبي ﷺ، فسألهما عن جيش قريش، فأخبراه أنهم من وراء الكثيب، وأنهم ينحرون عشرًا من الإبل يومًا وتسعًا يومًا، فعرف النبي ﷺ أن عددهم بين التسعمائة والألف، ثم سألهما عن أشراف قريش فذكروا له جماعة منهم.',
+          'أبلى سعد بن أبي وقاص يوم بدر بلاءً حسنًا، وقال عبد الله بن مسعود: «لقد رأيت سعدًا يقاتل يوم بدر قتال الفرسان»، وقتل أخوه عمير بن أبي وقاص في السادسة عشرة من عمره، وقتل سعد سعيد بن العاص وأخذ سيفه «ذا الكتفية»، فلما نزلت سورة الأنفال أذن له النبي ﷺ في أخذه، وأسر سعد أسيرين من السبعين أسيرًا.',
+          'شهد غزوة أحد وثبت مع النبي ﷺ حين ولى الناس، وكان من الرماة المهرة، حتى قال الزهري: رمى سعد يوم أحد ألف سهم، وكان النبي ﷺ يقول له: «ارم سعد فداك أبي وأمي»، وكان إذا مر رجل معه النبل يقول: «اطرحه لسعد فإنه أمهر منك».',
+          'قصة مرض سعد في عام حجة الوداع (السنة العاشرة): عاده النبي ﷺ فسأله: «إن لي مالًا كثيرًا وليس يرثني إلا ابنتي، أفأتصدق بمالي؟» قال: لا. قال: بالثلثين؟ قال: لا. قال: فبالشطر؟ قال: لا. قال: فبالثلث؟ قال: «الثلث، نعم، والثلث كثير، إنك إن تذر ورثتك أغنياء خير من أن تدعهم عالة يتكففون الناس»، وقال: «وإنك لن تنفق نفقة تبتغي بها وجه الله إلا أجرت عليها، حتى اللقمة ترفعها في فم امرأتك».',
+          'سأل سعد: «أتخلف عن هجرتي؟» خوفًا من أن يموت في مكة فتحبط هجرته، فقال له النبي ﷺ: «إنك لن تخلف بعدي فتعمل عملًا صالحًا تريد به وجه الله إلا ازددت به رفعة ودرجة، ولعلك أن تخلف حتى ينتفع بك أقوام ويضر بك آخرون».',
+          'تحقق وعد النبي ﷺ: عاش سعد بعد هذه الحادثة أكثر من خمس وأربعين سنة، وولي العراق وفتحها، فأسلم على يديه خلق كثيرون، وقتل وأسر من الكفار كثيرون، وأنجب من الأولاد ما يزيد على خمسة وثلاثين ولدًا بعد أن كانت له بنت واحدة.',
+          'قصة سعد بن خولة: مات في مكة بعد أن هاجر منها، فسقطت هجرته، وقال النبي ﷺ: «لكن البائس سعد بن خولة» يرثي له أنه مات في الأرض التي هاجر منها.',
+          'بيان أن الهجرة تسقط إذا مات المهاجر في الأرض التي هاجر منها قبل عام الفتح، أما بعد عام الفتح فقال النبي ﷺ: «لا هجرة بعد الفتح ولكن جهاد ونية».',
+          'التحذير من الطعن في الثوابت: كلام بعض من ينتسب إلى العلم في استفتاء الشعب في آيات المواريث، والرد عليهم بأن الثوابت لا تُستفتى فيها الآراء، قال تعالى: ﴿لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ﴾.',
+          'الدرس الأكبر: «لا تدري ما في غد، عش يومك في طاعة الله، ولا تفكر في غد، فإن ربك كفاك بالأمس ما كان سيكفيك في غد ما سيكون»، «دع الأمور تجري في أعنتها ولا تبتئن إلا خالي البال، ما بين غمضة عين وانتباهتها يغير الله من حال إلى حال».',
+          'خاتمة بدعاء جامع: اللهم أصلح لنا ديننا ودنيانا وآخرتنا، واشف مرضانا، وارحم موتانا، وأهلك أعدائنا، وانصر المستضعفين في غزة، واغفر لنا جميعًا.'
+        ],
+        transcript: parseTranscript(RAW_P2)
+      },
+      {
+        id: 'part-3',
+        title: 'اللقاء الثالث — الولد للفراش وقيادة العراق ومعركة القادسية',
+        video: 'https://www.youtube.com/watch?v=-w96NQQUacw',
+        summary: [
+          'قصة عتبة بن أبي وقاص مع وليدة زمعة: روى البخاري ومسلم عن عائشة رضي الله عنها أن عتبة بن أبي وقاص (أخا سعد، مات كافرًا) أوصى أخاه سعدًا أن ابن وليدة زمعة مني، فاقبضه إليك. فلما كان عام فتح مكة أخذه سعد، فقام عبد الرحمن بن زمعة فقال: أخي وابن وليدة أبي، ولد على فراشه. فتساوقا إلى رسول الله ﷺ.',
+          'حكم النبي ﷺ في القضية: قال ﷺ: «هو لك يا ابن عبد زمعة»، ثم بيّن الحكم الشرعي فقال: «الولد للفراش وللعاهر الحجر» — قاعدة إسلامية عظيمة تُبطل ما كان في الجاهلية من إلحاق النسب بالزنا.',
+          'معنى «الحجر»: يحتمل معنيين: الحسرة والندامة، أو الحجر الذي يقام به الحد على العاهر.',
+          'سد الذرائع: قال النبي ﷺ لسودة بنت زمعة: «احتجبي منه يا سودة» لما رأى من شدة شبهه بعتبة، فما رآها حتى لقي الله — تطبيق لقاعدة سد الذرائع في الإسلام.',
+          'الحكمة التشريعية: كانت الجاهلية تُلحق النسب بالزنا وتستأجر الإماء للزنا، فجاء الإسلام فأبطل ذلك وألحق الولد بالفراش الشرعي، وهذا من عظيم تشريعات الإسلام التي تحفظ الأنساب والأعراض.',
+          'الملاعنة: إذا تبرأ الزوج من الولد وعلم أنه ليس منه، فالسبيل هو الملاعنة، قال تعالى: ﴿وَالَّذِينَ يَرْمُونَ أَزْوَاجَهُمْ وَلَمْ يَكُن لَّهُمْ شُهَدَاءُ إِلَّا أَنفُسُهُمْ...﴾ — فإن تلاعنا فرّق بينهما، وأُلحق الولد بأمه، ونُسب إليها، ولا يُنسب إلى الأب، ولا تُرمى به أمه بزنا.',
+          'حرص سعد على ود وصله أخيه عتبة ولو كان كافرًا: درس في صلة الأرحام والعمل بالوصية، وقد نسخ الله على يديه قاعدة الجاهلية في إلحاق النسب.',
+          'بعد وفاة النبي ﷺ وتولي أبي بكر الصديق: كان سعد من جملة المقربين من الصديق، إذ أنه أسلم على يديه. ولما خرج جيش أسامة، جعل أبو بكر حرسًا على حدود المدينة، منهم علي والزبير وطلحة وسعد، لحماية المدينة من طمع الأعراب.',
+          'خرج سعد مع أبي بكر لقتال المرتدين الذين منعوا الزكاة، ثم كان له شأن عظيم في فتوح العراق.',
+          'بعد استشهاد أبي عبيد الثقفي في معركة الجسر (13هـ)، ونقض الفرس عهدهم في خلافة عمر، عزم عمر على الخروج بنفسه لقتال الفرس سنة 14هـ، واستخلف على المدينة عليًّا.',
+          'استشار عمر الصحابة فوافقوه جميعًا على خروجه، إلا عبد الرحمن بن عوف فقد أشار عليه بالبقاء في المدينة وإرسال قائد، وقال: «أخشى إن كُسرت أن تكون المصيبة فيك عظيمة، وأن يضعف المسلمون في سائر أقطار الأرض»، فرجع عمر إلى رأيه.',
+          'اختيار سعد بن أبي وقاص قائدًا للعراق: قال عمر: «الأسد في براثنه، سعد بن أبي وقاص» — الوحيد الذي يصلح لهذه المهمة العظيمة.',
+          'وصية عمر لسعد عند خروجه: «لا يغرنك من الله أن قيل: إنك خال رسول الله، فالله ليس بينه وبين أحد من خلقه نسب، فإن الله لا يمحو السيئ بالسيئ، ولكن يمحو السيئ بطاعته... فالناس شريفهم ووضيعهم في ذات الله سواء، الله ربهم وهم عباده، يتفاضلون بالعافية، ويدركون ما عند الله بالطاعة».',
+          'من وصية عمر أيضًا: «الزم أمر النبي ﷺ، فإني أوصيك به، إياك أن تتركه، فإن تركتَه ورغبتَ عنه حبط عملك وكنتَ من الخاسرين»، وقال له: «إنك ستقدم على أمر شديد فالصبر الصبر على ما أصابك»، وبيّن أن خشية الله تجمع في أمرين: طاعته واجتناب معصيته، وأن طاعته ببغض الدنيا وحب الآخرة، ومعصيته بحب الدنيا وبغض الآخرة.',
+          'خرج سعد إلى العراق في ستة آلاف مقاتل، ثم أمده عمر حتى وصل الجيش إلى ثلاثين أو ستة وثلاثين ألفًا، وانضوت كل قيادات العراق تحت إمرته.',
+          'معركة القادسية: جيش الفرس تحت قيادة رستم بلغ مائتي ألف (أو مائة وعشرين ومائة وعشرين خلفه)، ومعه ثلاثة وثلاثون فيلًا، في مقابل ستة وثلاثين ألفًا من المسلمين — تصديقًا لقوله تعالى: ﴿كَم مِّن فِئَةٍ قَلِيلَةٍ غَلَبَتْ فِئَةً كَثِيرَةً بِإِذْنِ اللَّهِ﴾.',
+          'دعوة الفرس إلى الإسلام: بعث سعد النعمان بن مقرن وفرات بن حيان وحنظلة بن الربيع إلى رستم يدعونه إلى الإسلام قبل الحرب، فأبى.',
+          'استطلاع جيش الفرس: أرسل سعد طليحة بن خويلد الأسدي ليأتي برجل من الفرس، فأتاه به، فأخبره أن رستم في مائة وعشرين ألفًا وخلفه مثلها.',
+          'المفاوضات: بعث رستم إلى سعد يطلب رجلًا عاقلًا عنده علم، فبعث المغيرة بن شعبة، ثم ربعي بن عامر، ثم حذيفة بن محصن. وسأل رستم ربعيًّا: ما الذي جاء بكم؟ فقال: «جئنا لنخرج العباد من عبادة العباد إلى عبادة رب العباد».',
+          'قبيل المعركة أُصيب سعد بمرض أو علة، فاتخذوا له عريشًا يُدير المعركة منه، فكان قائد العمليات في القادسية من داخل العريش — درس في إدارة المعارك وعدم التوقف بسبب الشدائد.',
+          'خاتمة بدعاء جامع: اللهم أصلح لنا ديننا ودنيانا وآخرتنا، واصرف عنا الفتن والبلاء والوباء والغلاء، واشف مرضانا، وارحم موتانا، واكتب لنا حجة مبرورة قبل الموت وتوبة نصوحًا قبل الموت وشهادة صادقة عند الموت ولذة النظر إلى وجهك الكريم.'
+        ],
+        transcript: parseTranscript(RAW_P3)
+      },
+      {
+        id: 'part-4',
+        title: 'اللقاء الرابع والأخير — اعتزال الفتنة ووفاة سعد بن أبي وقاص',
+        video: 'https://www.youtube.com/watch?v=jP_6FFpZ9j0',
+        summary: [
+          'اعتزال الفتنة: لما حدثت الفتنة بين علي ومعاوية رضي الله عنهما، انقسم الصحابة إلى ثلاثة أقسام: فريق مع علي، وفريق مع معاوية (ليس من أجل معاوية، إنما من أجل الثأر لدم عثمان)، وفريق ثالث معتزل. وكان سعد بن أبي وقاص رضي الله عنه من المعتزلين.',
+          'تشبيه بديع للفتنة بالظلمة: لو كنا نسير في طريق منير ثم انطفأت الأنوار، ينقسم الناس لثلاثة: فريق يأخذ يمينًا، وفريق يأخذ يسارًا، وفريق يقف. أسلمهم الواقف، لأن من أخذ يمينًا أو يسارًا قد يخطئ ويعود لنقطة الصفر، بينما الواقف لا يضل.',
+          'من الصحابة الذين اعتزلوا الفتنة: سعد بن أبي وقاص، وعبد الله بن عمر، وأسامة بن زيد، ومحمد بن مسلمة، ونفيع بن الحارث أبو بكرة، وسلمة بن الأكوع، وجماعة كثيرة رضي الله عنهم.',
+          'قول سعد بن أبي وقاص حين أراد معاوية أن يستميله: «ائتني بسيف لو ضربت به المؤمن أمتنع، ولو ضربت به الكافر قطع»، قالوا: «لا نجد»، قال: «ولساني لا يفعل ذلك» — فطالما نحن في فتنة فالاعتزال فيها واجب.',
+          'الفتن في زماننا مختلطة، الناجي من حمى سمعه وبصره وفؤاده. وحادثة الإفك درس: انقسم الناس إلى خائض ومادح وساكت، وكانت زينب بنت جحش رضي الله عنها من المادحين حين قالت: «والله يا رسول الله ما علمت عنها إلا خيرًا».',
+          'من خاض في الإفك: حمنة بنت جحش، ومسطح بن أثاثة، وحسان بن ثابت، وعبد الله بن أبي (رأس المنافقين). جلد النبي ﷺ ثلاثة منهم، وترك عبد الله بن أبي لعذاب الله في الآخرة لقوله تعالى: ﴿وَالَّذِي تَوَلَّى كِبْرَهُ مِنْهُمْ لَهُ عَذَابٌ عَظِيمٌ﴾.',
+          'الدرس: إن استطعت أن تحفظ عينك ولسانك وسمعك وبصرك وقلبك فأنت ناجٍ بفضل الله. إياك أن تكون خائضًا مع الخائضين، فتلك صفة من صفات أهل سقر، قال تعالى: ﴿وَكُنَّا نَخُوضُ مَعَ الْخَائِضِينَ﴾.',
+          'مراسلة معاوية لسعد وعبد الله بن عمر ومحمد بن مسلمة يدعوهم للطلب بدم عثمان، فأجابه كل واحد منهم برد على حسب حاله.',
+          'أمر معاوية سعدًا أن يسب أبا تراب (عليًّا)، فذكره سعد بثلاث خصال قالهن له رسول الله ﷺ: الأولى: حديث المنزلة في غزوة تبوك: «أما ترضى أن تكون مني بمنزلة هارون من موسى، إلا أنه لا نبي بعدي»، الثانية: حديث الراية في خيبر: «لأعطين الراية غدًا رجلًا يحبه الله ورسوله، ويحبه الله ورسوله، يفتح الله على يديه»، والثالثة: آية المباهلة ودعاء النبي ﷺ لعلي وفاطمة وحسن وحسين: «اللهم هؤلاء أهلي».',
+          'موقف سعد من الذين يسبون الصحابة: لما سمع رجلًا يسب عليًّا وطلحة والزبير، نهاه وقال: «لا تفعل ذلك بإخواني»، فلما استمر، قام سعد وتوضأ وصلى ركعتين ودعا عليه — وكان مستجاب الدعوة — فجعل الجمل يشق الناس ويأخذ الساب بين رجليه ويسحقه. فقال سعيد بن المسيب: رأيت الناس يتبعون سعدًا ويقولون: «هنيئًا لك يا أبا إسحاق، استجيبت دعوتك».',
+          'فضل الذب عن عرض المسلم: «من ذب عن عرض أخيه وكل الله به ملكًا يوم القيامة يحمي لحمه من نار جهنم»، «ومن قال في مسلم شيئًا يريد به شينه حبسه الله على قنطرة بين الجنة والنار حتى يخرج مما قال وليس بخارج».',
+          'وفاة سعد بن أبي وقاص: هو آخر المهاجرين موتًا بالمدينة، توفي سنة 55هـ. وآخر الصحابة موتًا بمكة: أبو الطفيل عامر بن واثلة سنة 102هـ، وآخرهم موتًا بالبصرة: أنس بن مالك رضي الله عنه.',
+          'وصيته العجيبة عند الوفاة: طلب أن يُكفَّن في جبة خَلِقة بالية كان قد لبسها في غزوة بدر، وقال: «هذه الجبة لقيت بها المشركين في غزوة بدر، وادخرتها لمثل يوم هذا، أُكفَّن فيه. فإن سألتني الملائكة قلت: أنا واحد ممن رضي الله عنهم في غزوة بدر».',
+          'جواز الوصية بالكفن في ثوب الإحرام: لأنه ثوب لم يرَ معصية، طاف بالبيت، وسعى بين الصفا والمروة، ووقف في عرفة، ونام على أرض مزدلفة، ورمى جمار الشيطان — فنعم ما فعل سعد.',
+          'دفنه: مات في بيته بالعقيق على بعد أميال من المدينة، وأوصى أن يدفن بالبقيع، فحملوه على أعناق الرجال، وصلى عليه مروان بن الحكم أمير المدينة من قبل معاوية.',
+          'صلاة زوجات النبي ﷺ عليه: أرسلن إلى الناس: «إنا لا نستطيع أن نخرج لكي نصلي عليه، فهل لا مررتم بجنازته في مسجد رسول الله ﷺ؟» ففعلوا، فدخلوا به فصلين عليه وهن في الحجرات.',
+          'دفاع عائشة رضي الله عنها عن صلاة النساء على الجنازة في المسجد: لما عاب الناس عليهن، قالت: «ما أسرع الناس أن يعيبوا وأن يتكلموا فيما لا علم لهم به!» واستدلت بحديث سهيل بن البيضاء: «والله ما صلى رسول الله ﷺ على سهيل بن البيضاء إلا في جوف المسجد، وأنا خلفه، وأنا في بيته».',
+          'تركة سعد: ترك 250,000 درهم. وتزوج 11 امرأة، ولم يكن في ذمته إلا أربعة. وأنجب 36 ولدًا وبنتًا (18 ذكرًا و18 أنثى).',
+          'أبناؤه الذكور: إسحاق الأكبر (وبه كان يُكنى أبا إسحاق)، عمر الأكبر، محمد، عامر، إسحاق الأصغر، إسماعيل، إبراهيم، موسى، عبد الله، مصعب، عبد الله الأصغر، بجير، عمير الأكبر، عمير الأصغر، عمر الأصغر، عمران، صالح، عثمان.',
+          'بناته: أم الحكم الكبرى، حفصة، أم القاسم، أم كلثوم، أم عمران، أم الحكم الصغرى، أم عمرو، هند، أم الزبير، أم موسى، حميدة، حمنة، أم عمرو، أم أيوب، أم إسحاق، رملة، عمرة، عائشة (أكبر بناته، توفيت سنة 117هـ، وكانت من رواة الحديث).',
+          'مناقب سعد: روى أحمد والترمذي عن علي رضي الله عنه: «ما سمعت رسول الله ﷺ يفدي أحدًا أبويه غير سعد»، وحديث سهر النبي ﷺ أول مقدمه المدينة فجاءه سعد يحرسه، وحديث: «هذا خالي فليرني امرؤ خاله»، ودعاء النبي ﷺ له: «اللهم أجب دعوته وسدد رميته».',
+          'من بركة دعاء النبي ﷺ: روت عائشة بنت سعد عن أبيها: «لما مرض أبي دخل رسول الله ﷺ عليه فوضع يده على جبهته ومسح وجهي وصدري وقال: اللهم اشفِ سعدًا»، قال سعد: «فما زلت أجد برد يده على صدري إلى ساعتي هذه».',
+          'أحاديثه: له 15 حديثًا في الصحيحين، انفرد البخاري بخمسة ومسلم بعشرة، ومجموع أحاديثه في المسانيد 270 حديثًا، وله في مسند أحمد 77 حديثًا. روى عنه عبد الله بن عمر، وعائشة، وعبد الله بن عباس، وجابر بن عبد الله، والمسور بن مخرمة، وجمع غفير من الصحابة.',
+          'خاتمة بدعاء جامع: اللهم اجعلنا من أهل الثبات والاستقامة، يا مقلب القلوب ثبت قلوبنا على دينك، اللهم إن أردت بالقوم فتنة فاقبضنا إليك غير فاتنين ولا مفتونين، وأصلح لنا ديننا ودنيانا وآخرتنا، واحفظ علينا ديننا وأمننا وبلادنا، وأصلح أولادنا ونساءنا، واستر بناتنا، واشف مرضانا، وارحم موتانا، واغفر لنا جميعًا.'
+        ],
+        transcript: parseTranscript(RAW_P4)
+      }
+    ]
+  }
+];
+
+/* ================== DOM helpers ================== */
+const $ = s => document.querySelector(s);
+const lectureListEl = $('#lectureList');
+const playerCard = $('#playerCard');
+const videoWrap = $('#videoWrap');
+const audioWrap = $('#audioWrap');
+const ytHost = $('#ytHost');
+const player = $('#player');
+const endedWrap = $('#endedWrap');
+const closedWrap = $('#closedWrap');
+const emptyWrap = $('#emptyWrap');
+const partTitle = $('#partTitle');
+const lectureTitle = $('#lectureTitle');
+const summaryCard = $('#summaryCard');
+const summaryList = $('#summaryList');
+const summaryCount = $('#summaryCount');
+const transcriptCard = $('#transcriptCard');
+const transcriptEl = $('#transcript');
+const trCount = $('#trCount');
+const chkAudio = $('#chkAudio');
+const chkText = $('#chkText');
+const chkSummary = $('#chkSummary');
+const btnShare = $('#btnShare');
+const btnNewTab = $('#btnNewTab');
+const btnSamePage = $('#btnSamePage');
+const btnClosePlayer = $('#btnClosePlayer');
+const btnReopen = $('#btnReopen');
+const btnReplay = $('#btnReplay');
+const btnCloseEnded = $('#btnCloseEnded');
+const btnAudioPlay = $('#btnAudioPlay');
+const audioSeek = $('#audioSeek');
+const audioTime = $('#audioTime');
+const audioTitle = $('#audioTitle');
+const toastEl = $('#toast');
+const toastBody = $('#toastBody');
+let bootstrapToast = null;
+try { bootstrapToast = bootstrap.Toast.getOrCreateInstance(toastEl); } catch(_){}
+
+function toast(msg){
+  if(!toastBody) return;
+  toastBody.textContent = msg;
+  if(bootstrapToast) bootstrapToast.show();
+}
+
+/* ================== الحالة ================== */
+const state = {
+  lectureId: null,
+  partId: null,
+  audioOnly: false,
+  showText: false,
+  showSummary: false,
+  ended: false,
+  closed: false
+};
+try{
+  const p = JSON.parse(localStorage.getItem('tawd_prefs_v1') || '{}');
+  if(typeof p.audioOnly === 'boolean') state.audioOnly = p.audioOnly;
+  if(typeof p.showText === 'boolean') state.showText = p.showText;
+  if(typeof p.showSummary === 'boolean') state.showSummary = p.showSummary;
+}catch(_){}
+
+function savePrefs(){
+  try{
+    localStorage.setItem('tawd_prefs_v1', JSON.stringify({
+      audioOnly: state.audioOnly,
+      showText: state.showText,
+      showSummary: state.showSummary
+    }));
+  }catch(_){}
+}
+
+/* ================== أدوات مساعدة ================== */
+function currentLecture(){
+  return LECTURES.find(l => l.id === state.lectureId) || null;
+}
+function currentPart(){
+  const lec = currentLecture();
+  return lec ? (lec.parts.find(p => p.id === state.partId) || null) : null;
+}
+function formatTime(s){
+  s = Math.max(0, Math.floor(s || 0));
+  const m = Math.floor(s / 60);
+  const r = s % 60;
+  return m + ':' + String(r).padStart(2, '0');
+}
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+/* ================== مشغل يوتيوب ================== */
+let ytIframe = null;
+let ytInfo = { currentTime: 0, duration: 0, state: -1 };
+let listeningTimer = null;
+
+function createYouTubeIframe(videoId, startAt){
+  destroyYouTube();
+  const iframe = document.createElement('iframe');
+  const q = new URLSearchParams({
+    autoplay: '1',
+    enablejsapi: '1',
+    rel: '0',
+    playsinline: '1',
+    start: String(startAt || 0),
+    origin: location.origin
+  });
+  iframe.src = `https://www.youtube.com/embed/${videoId}?${q.toString()}`;
+  iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  iframe.setAttribute('allowfullscreen', '');
+  iframe.title = 'مشغل الفيديو';
+  ytHost.appendChild(iframe);
+  ytIframe = iframe;
+
+  let tries = 0;
+  clearInterval(listeningTimer);
+  listeningTimer = setInterval(() => {
+    if(!ytIframe || !ytIframe.contentWindow) return clearInterval(listeningTimer);
+    try {
+      ytIframe.contentWindow.postMessage(JSON.stringify({event:'listening', id: 1, channel: 'widget'}), '*');
+    } catch(_){}
+    if(++tries > 12) clearInterval(listeningTimer);
+  }, 400);
+}
+
+function destroyYouTube(){
+  clearInterval(listeningTimer);
+  if(ytIframe && ytIframe.parentNode) ytIframe.parentNode.removeChild(ytIframe);
+  ytIframe = null;
+  ytInfo = { currentTime: 0, duration: 0, state: -1 };
+}
+
+function ytCmd(func, args){
+  if(!ytIframe || !ytIframe.contentWindow) return;
+  try {
+    ytIframe.contentWindow.postMessage(JSON.stringify({
+      event: 'command', func, args: args || []
+    }), '*');
+  } catch(_){}
+}
+
+window.addEventListener('message', e => {
+  let host = '';
+  try { host = new URL(e.origin).hostname; } catch(_){ return; }
+  if(!/(^|\.)youtube(-nocookie)?\.com$/i.test(host)) return;
+
+  let d;
+  try { d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data; } catch(_){ return; }
+  if(!d || typeof d !== 'object') return;
+
+  if(d.event === 'infoDelivery' && d.info){
+    if(typeof d.info.currentTime === 'number') ytInfo.currentTime = d.info.currentTime;
+    if(typeof d.info.duration === 'number') ytInfo.duration = d.info.duration;
+    if(typeof d.info.playerState === 'number') ytInfo.state = d.info.playerState;
+    updateAudioUI();
+    updateAudioPlayIcon();
+  } else if(d.event === 'onStateChange' && d.info !== undefined){
+    const st = (typeof d.info === 'number') ? d.info : (d.info && d.info.playerState);
+    if(typeof st === 'number'){ ytInfo.state = st; handleStateChange(st); }
+  } else if(d.event === 'onReady'){
+    ytInfo.state = 1; handleStateChange(1);
+  }
+});
+
+function handleStateChange(code){
+  if(code === 0){
+    state.ended = true;
+    audioWrap.classList.remove('playing');
+    if(!state.closed) showState('ended');
+  } else if(code === 1){
+    state.ended = false;
+    audioWrap.classList.add('playing');
+  } else {
+    audioWrap.classList.remove('playing');
+  }
+  updateAudioPlayIcon();
+}
+
+/* ================== الحالة المنظورة ================== */
+function showState(name){
+  videoWrap.classList.add('d-none');
+  audioWrap.classList.add('d-none');
+  endedWrap.classList.add('d-none');
+  closedWrap.classList.add('d-none');
+  emptyWrap.classList.add('d-none');
+  if(name === 'video') videoWrap.classList.remove('d-none');
+  else if(name === 'audio'){ videoWrap.classList.remove('d-none'); audioWrap.classList.remove('d-none'); }
+  else if(name === 'ended') endedWrap.classList.remove('d-none');
+  else if(name === 'closed') closedWrap.classList.remove('d-none');
+  else if(name === 'empty') emptyWrap.classList.remove('d-none');
+}
+
+/* ================== قائمة اللقاءات ================== */
+function renderLectureList(){
+  lectureListEl.innerHTML = '';
+  LECTURES.forEach(lec => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'lecture-btn';
+    btn.dataset.lectureId = lec.id;
+    btn.innerHTML = `<i class="bi ${lec.icon}"></i><span class="flex-grow-1">${escapeHtml(lec.title)}</span><i class="bi bi-chevron-down chev"></i>`;
+
+    const parts = document.createElement('div');
+    parts.className = 'parts open';
+    parts.dataset.lectureId = lec.id;
+
+    lec.parts.forEach(part => {
+      const a = document.createElement('a');
+      a.className = 'part-link';
+      a.href = `#/${lec.id}/${part.id}`;
+      a.dataset.lectureId = lec.id;
+      a.dataset.partId = part.id;
+      a.innerHTML = `<i class="bi bi-play-circle"></i><span>${escapeHtml(part.title)}</span>`;
+      parts.appendChild(a);
+    });
+
+    btn.addEventListener('click', () => {
+      const open = parts.classList.toggle('open');
+      btn.classList.toggle('open', open);
+    });
+    btn.classList.add('open');
+
+    lectureListEl.appendChild(btn);
+    lectureListEl.appendChild(parts);
+  });
+  highlightActive();
+}
+
+function highlightActive(){
+  document.querySelectorAll('.part-link').forEach(a => {
+    const active = a.dataset.lectureId === state.lectureId && a.dataset.partId === state.partId;
+    a.classList.toggle('active', active);
+  });
+  document.querySelectorAll('.lecture-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lectureId === state.lectureId);
+  });
+}
+
+/* ================== تحميل جزء ================== */
+function loadPart(lectureId, partId, startAt){
+  const lec = LECTURES.find(l => l.id === lectureId);
+  if(!lec) return;
+  const part = lec.parts.find(p => p.id === partId);
+  if(!part) return;
+
+  state.lectureId = lectureId;
+  state.partId = partId;
+  state.closed = false;
+  state.ended = false;
+
+  partTitle.innerHTML = `<span>${escapeHtml(part.title)}</span>`;
+  lectureTitle.textContent = lec.title;
+  highlightActive();
+  renderSummary();
+  renderTranscript();
+
+  if(!part.video){ destroyYouTube(); showState('empty'); return; }
+
+  if(isYouTube(part.video)){
+    const vid = getYouTubeId(part.video);
+    if(!vid){ showState('empty'); return; }
+    player.classList.add('d-none');
+    player.removeAttribute('src');
+    ytHost.classList.remove('d-none');
+    createYouTubeIframe(vid, startAt || 0);
+  } else {
+    destroyYouTube();
+    ytHost.classList.add('d-none');
+    player.classList.remove('d-none');
+    player.src = part.video;
+    try { player.currentTime = startAt || 0; } catch(_){}
+    player.play().catch(()=>{});
+  }
+
+  if(state.audioOnly){
+    showState('audio');
+    videoWrap.classList.add('yt-offscreen');
+    audioTitle.textContent = (part.title || 'تشغيل الصوت فقط') + ' — تشغيل الصوت فقط';
+    updateAudioUI();
+    updateAudioPlayIcon();
+  } else {
+    showState('video');
+    videoWrap.classList.remove('yt-offscreen');
+  }
+
+  const hash = `#/${lectureId}/${partId}${startAt ? '?t=' + startAt : ''}`;
+  if(location.hash !== hash) history.replaceState(null, '', hash);
+}
+
+/* ================== الملخص ================== */
+function renderSummary(){
+  const part = currentPart();
+  const items = part?.summary || [];
+  summaryCount.textContent = items.length;
+  summaryList.innerHTML = '';
+  items.forEach(text => {
+    const li = document.createElement('li');
+    li.innerHTML = `<i class="bi bi-check2-circle"></i><span>${escapeHtml(text)}</span>`;
+    summaryList.appendChild(li);
+  });
+}
+
+/* ================== النص ================== */
+function renderTranscript(){
+  const part = currentPart();
+  const items = part?.transcript || [];
+  trCount.textContent = items.length;
+  transcriptEl.innerHTML = '';
+  items.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'tr-item';
+    div.dataset.t = item.t;
+    div.innerHTML = `<span class="tr-time">${formatTime(item.t)}</span><span class="tr-text">${escapeHtml(item.text)}</span>`;
+    div.addEventListener('click', () => { seekTo(item.t); highlightTranscriptItem(div); });
+    transcriptEl.appendChild(div);
+  });
+}
+
+function highlightTranscriptItem(el){
+  transcriptEl.querySelectorAll('.tr-item').forEach(x => x.classList.toggle('active', x === el));
+}
+
+/* ================== تشغيل/إيقاف/تحريك ================== */
+function currentTime(){
+  if(ytIframe) return ytInfo.currentTime || 0;
+  if(player && !player.classList.contains('d-none')) return player.currentTime || 0;
+  return 0;
+}
+function seekTo(t){
+  if(ytIframe){ ytCmd('seekTo', [t, true]); ytCmd('playVideo'); }
+  else if(player && player.src){ try { player.currentTime = t; player.play().catch(()=>{}); } catch(_){} }
+}
+function togglePlay(){
+  if(ytIframe){ if(ytInfo.state === 1) ytCmd('pauseVideo'); else ytCmd('playVideo'); }
+  else if(player && player.src){ if(player.paused) player.play().catch(()=>{}); else player.pause(); }
+}
+
+/* ================== واجهة الصوت ================== */
+let userSeeking = false;
+function updateAudioUI(){
+  if(!state.audioOnly) return;
+  const cur = ytInfo.currentTime || 0;
+  const dur = ytInfo.duration || 0;
+  audioTime.textContent = formatTime(cur) + ' / ' + formatTime(dur);
+  if(!userSeeking && dur > 0) audioSeek.value = String(Math.min(100, (cur / dur) * 100));
+}
+function updateAudioPlayIcon(){
+  if(!state.audioOnly) return;
+  const playing = (ytIframe ? ytInfo.state === 1 : (player && !player.paused));
+  btnAudioPlay.innerHTML = playing ? '<i class="bi bi-pause-fill fs-4"></i>' : '<i class="bi bi-play-fill fs-4"></i>';
+  audioWrap.classList.toggle('playing', !!playing);
+}
+btnAudioPlay.addEventListener('click', togglePlay);
+audioSeek.addEventListener('input', () => { userSeeking = true; });
+audioSeek.addEventListener('change', () => {
+  const dur = ytInfo.duration || (player ? player.duration : 0) || 0;
+  if(dur > 0){ seekTo((Number(audioSeek.value) / 100) * dur); }
+  setTimeout(() => { userSeeking = false; }, 500);
+});
+setInterval(() => { if(state.audioOnly){ updateAudioUI(); updateAudioPlayIcon(); } }, 500);
+setInterval(() => {
+  if(!state.showText) return;
+  const items = transcriptEl.querySelectorAll('.tr-item');
+  if(!items.length) return;
+  const t = currentTime();
+  let best = null, bestT = -1;
+  items.forEach(el => {
+    const tt = Number(el.dataset.t) || 0;
+    if(tt <= t + 0.5 && tt > bestT){ bestT = tt; best = el; }
+  });
+  if(best) highlightTranscriptItem(best);
+}, 1200);
+
+player.addEventListener('ended', () => { state.ended = true; showState('ended'); });
+player.addEventListener('timeupdate', () => {
+  if(state.audioOnly && player && !player.classList.contains('d-none')){
+    const cur = player.currentTime || 0, dur = player.duration || 0;
+    audioTime.textContent = formatTime(cur) + ' / ' + formatTime(dur);
+    if(!userSeeking && dur > 0) audioSeek.value = String((cur / dur) * 100);
+    updateAudioPlayIcon();
+  }
+});
+player.addEventListener('play', updateAudioPlayIcon);
+player.addEventListener('pause', updateAudioPlayIcon);
+
+/* ================== التوجيه ================== */
+function parseHash(){
+  const h = location.hash.replace(/^#/, '') || '/';
+  const [path, query] = h.split('?');
+  const segs = path.split('/').filter(Boolean);
+  const params = new URLSearchParams(query || '');
+  const t = parseInt(params.get('t') || '0', 10) || 0;
+  return { segs, t };
+}
+function handleHash(){
+  const { segs, t } = parseHash();
+  if(segs.length >= 2){
+    const lec = LECTURES.find(l => l.id === segs[0]);
+    if(lec){
+      const part = lec.parts.find(p => p.id === segs[1]);
+      if(part){
+        if(state.lectureId === segs[0] && state.partId === segs[1] && t > 0 && ytIframe){ seekTo(t); return; }
+        loadPart(segs[0], segs[1], t);
+        return;
+      }
+    }
+  }
+  if(!state.lectureId && LECTURES.length && LECTURES[0].parts.length){
+    loadPart(LECTURES[0].id, LECTURES[0].parts[0].id, 0);
+  }
+}
+window.addEventListener('hashchange', handleHash);
+
+/* ================== أزرار التحكم ================== */
+btnShare.addEventListener('click', async () => {
+  const t = Math.floor(currentTime());
+  const hash = `#/${state.lectureId}/${state.partId}${t ? '?t=' + t : ''}`;
+  const url = `${location.origin}${location.pathname}${hash}`;
+  try {
+    if(navigator.clipboard && navigator.clipboard.writeText) await navigator.clipboard.writeText(url);
+    else {
+      const ta = document.createElement('textarea');
+      ta.value = url; ta.style.position = 'fixed'; ta.style.left = '-9999px';
+      document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+    }
+    toast('تم نسخ رابط المشاركة');
+  } catch(_){ toast('تعذّر نسخ الرابط'); }
+});
+
+btnNewTab.addEventListener('click', () => {
+  const part = currentPart();
+  if(part?.video) window.open(part.video, '_blank', 'noopener');
+});
+
+btnSamePage.addEventListener('click', () => {
+  if(state.audioOnly){ state.audioOnly = false; chkAudio.checked = false; savePrefs(); applyAudioMode(false); }
+  if(playerCard) playerCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+btnClosePlayer.addEventListener('click', () => {
+  state.closed = true;
+  destroyYouTube();
+  try { player.pause(); } catch(_){}
+  player.removeAttribute('src');
+  videoWrap.classList.remove('yt-offscreen');
+  audioWrap.classList.remove('playing');
+  showState('closed');
+});
+btnReopen.addEventListener('click', () => { if(state.lectureId && state.partId) loadPart(state.lectureId, state.partId, 0); });
+btnReplay.addEventListener('click', () => { if(state.lectureId && state.partId) loadPart(state.lectureId, state.partId, 0); });
+btnCloseEnded.addEventListener('click', () => {
+  state.closed = true;
+  destroyYouTube();
+  try { player.pause(); } catch(_){}
+  player.removeAttribute('src');
+  videoWrap.classList.remove('yt-offscreen');
+  audioWrap.classList.remove('playing');
+  showState('closed');
+});
+
+function applyAudioMode(on){
+  if(!currentPart()) return;
+  if(on){
+    showState('audio');
+    videoWrap.classList.add('yt-offscreen');
+    audioTitle.textContent = (currentPart().title || 'تشغيل الصوت فقط') + ' — تشغيل الصوت فقط';
+    updateAudioUI(); updateAudioPlayIcon();
+    if(ytIframe && ytInfo.state !== 1) ytCmd('playVideo');
+  } else {
+    showState('video');
+    videoWrap.classList.remove('yt-offscreen');
+    audioWrap.classList.remove('playing');
+  }
+}
+
+chkAudio.checked = state.audioOnly;
+chkText.checked = state.showText;
+chkSummary.checked = state.showSummary;
+transcriptCard.classList.toggle('d-none', !state.showText);
+summaryCard.classList.toggle('d-none', !state.showSummary);
+
+chkAudio.addEventListener('change', () => {
+  state.audioOnly = chkAudio.checked; savePrefs(); applyAudioMode(state.audioOnly);
+});
+chkText.addEventListener('change', () => {
+  state.showText = chkText.checked; savePrefs();
+  transcriptCard.classList.toggle('d-none', !state.showText);
+  if(state.showText) renderTranscript();
+});
+chkSummary.addEventListener('change', () => {
+  state.showSummary = chkSummary.checked; savePrefs();
+  summaryCard.classList.toggle('d-none', !state.showSummary);
+  if(state.showSummary) renderSummary();
+});
+
+/* ================== التهيئة ================== */
+renderLectureList();
+renderSummary();
+renderTranscript();
+handleHash();
+
+if(!state.lectureId && LECTURES.length && LECTURES[0].parts.length){
+  const first = LECTURES[0];
+  loadPart(first.id, first.parts[0].id, 0);
+}
+</script>
+</body>
+</html>
